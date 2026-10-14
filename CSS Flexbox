@@ -1,0 +1,76 @@
+display:           flex	It places elements in a flexible layout, usually in a row.	       display: flex;
+flex-direction	   It sets the direction of items in a flex container.	                   flex-direction: column;
+justify-content	   It aligns items along the main axis.	                                   justify-content: center;
+align-items	       It aligns items along the cross axis.	                                 align-items: center;
+flex-wrap	         It allows items to move to the next line when needed.	                 flex-wrap: wrap;
+gap	               It adds space between flex items.	                                     gap: 10px;
+flex-grow	         It allows an item to grow and use extra space.	                         flex-grow: 1;
+flex-shrink	       It controls how much an item shrinks when space is limited.	           flex-shrink: 0;
+flex-basis	       It sets an item's initial main-axis size.	                             flex-basis: 200px;
+align-self	       It aligns one item differently from the other items.	                   align-self: flex-end;
+order	             It changes the visual order of flex items.	                             order: 2;
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Flexbox Example</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 20px;
+            background: #dbeafe;
+        }
+
+        .box {
+            flex-basis: 100px;
+            padding: 25px 10px;
+            background: #2563eb;
+            color: white;
+            border-radius: 8px;
+        }
+
+        .special {
+            order: 1;
+            flex-grow: 1;
+            align-self: flex-end;
+        }
+
+        @media (max-width: 400px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .special {
+                align-self: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>CSS Flexbox</h1>
+    <p>Flexbox helps arrange items in a layout.</p>
+
+    <div class="container">
+        <div class="box">Box 1</div>
+        <div class="box special">Box 2</div>
+        <div class="box">Box 3</div>
+    </div>
+
+</body>
+</html>
