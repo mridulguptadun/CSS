@@ -11,252 +11,329 @@ cursor	               It changes the mouse pointer's appearance.	               
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Position and Properties</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Position Property - A4 Demo</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<style>
+/* A4 PAGE */
+* {
+    box-sizing: border-box;
+}
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f1f5f9;
-            color: #1e293b;
-        }
+body {
+    margin: 0;
+    padding: 15px;
+    background: #e5e7eb;
+    font-family: Arial, sans-serif;
+    color: #1f2937;
+}
 
-        h1, h2 {
-            text-align: center;
-        }
+.sheet {
+    width: 210mm;
+    min-height: 297mm;
+    margin: auto;
+    padding: 10mm;
+    background: white;
+    position: relative;
+}
 
-        .section {
-            background: white;
-            margin: 25px auto;
-            padding: 20px;
-            width: 90%;
-            max-width: 700px;
-            border-radius: 10px;
-        }
+/* HEADER */
+header {
+    text-align: center;
+    border-bottom: 3px solid #2563eb;
+    padding-bottom: 10px;
+}
 
-        /* 1. Static */
-        .static-box {
-            position: static;
-            background: lightblue;
-            padding: 15px;
-        }
+header h1 {
+    margin: 0 0 6px;
+    color: #1d4ed8;
+    font-size: 25px;
+}
 
-        /* 2. Relative */
-        .relative-box {
-            position: relative;
-            top: 10px;
-            left: 15px;
-            background: lightgreen;
-            padding: 15px;
-        }
+header p {
+    margin: 0;
+    font-size: 12px;
+}
 
-        /* 3. Absolute */
-        .parent {
-            position: relative;
-            height: 120px;
-            background: #e2e8f0;
-            padding: 15px;
-        }
+/* EACH EXAMPLE */
+.example {
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    padding: 9px;
+    margin-top: 10px;
+    break-inside: avoid;
+}
 
-        .absolute-box {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: orange;
-            padding: 12px;
-        }
+.example h2 {
+    margin: 0 0 6px;
+    font-size: 15px;
+    color: #1d4ed8;
+}
 
-        /* 4. Fixed */
-        .fixed-box {
-            position: fixed;
-            bottom: 15px;
-            right: 15px;
-            background: #2563eb;
-            color: white;
-            padding: 12px;
-            border-radius: 8px;
-            z-index: 10;
-        }
+.description {
+    margin: 5px 0;
+    font-size: 11px;
+    line-height: 1.4;
+}
 
-        /* 5. Sticky */
-        .sticky-box {
-            position: sticky;
-            top: 0;
-            background: #166534;
-            color: white;
-            padding: 15px;
-            z-index: 5;
-        }
+.demo {
+    height: 65px;
+    background: #eff6ff;
+    border: 1px dashed #93c5fd;
+    position: relative;
+    overflow: visible;
+}
 
-        /* 6. Z-index */
-        .overlap {
-            position: relative;
-            height: 130px;
-        }
+.box {
+    width: 95px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #2563eb;
+    color: white;
+    font-size: 11px;
+    border-radius: 4px;
+}
 
-        .box-one, .box-two {
-            position: absolute;
-            width: 150px;
-            height: 80px;
-            padding: 12px;
-        }
+.code {
+    margin: 5px 0 0;
+    padding: 5px;
+    background: #f3f4f6;
+    font-size: 10px;
+    white-space: pre-wrap;
+}
 
-        .box-one {
-            top: 10px;
-            left: 20px;
-            background: tomato;
-            z-index: 1;
-        }
+/* 1. STATIC */
+.static-box {
+    position: static;
+    background: #64748b;
+}
 
-        .box-two {
-            top: 35px;
-            left: 75px;
-            background: skyblue;
-            z-index: 2;
-        }
+/* 2. RELATIVE */
+.relative-box {
+    position: relative;
+    top: 12px;
+    left: 25px;
+    background: #059669;
+}
 
-        /* 7. Overflow */
-        .overflow-box {
-            height: 70px;
-            overflow: auto;
-            border: 2px solid #64748b;
-            padding: 10px;
-        }
+/* 3. ABSOLUTE */
+.absolute-parent {
+    position: relative;
+    height: 65px;
+    background: #eff6ff;
+    border: 1px dashed #93c5fd;
+}
 
-        /* 8. Box sizing */
-        .sizing-box {
-            width: 100%;
-            padding: 15px;
-            border: 5px solid teal;
-            background: #ccfbf1;
-        }
+.absolute-box {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #9333ea;
+}
 
-        /* 9. Opacity */
-        .opacity-box {
-            padding: 15px;
-            background: purple;
-            color: white;
-            opacity: 0.5;
-        }
+/* 4. FIXED */
+.fixed-demo {
+    position: relative;
+    height: 65px;
+    background: #eff6ff;
+    border: 1px dashed #93c5fd;
+}
 
-        /* 10. Cursor */
-        .demo-button {
-            padding: 12px 20px;
-            background: #2563eb;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
+.fixed-box {
+    position: fixed;
+    right: 12px;
+    bottom: 12px;
+    width: 105px;
+    height: 32px;
+    background: #dc2626;
+    z-index: 100;
+}
 
-        .spacer {
-            height: 450px;
-            padding: 20px;
-            text-align: center;
-            background: #dbeafe;
-        }
-    </style>
+/* 5. STICKY */
+.sticky-demo {
+    height: 65px;
+    overflow-y: auto;
+    background: #eff6ff;
+    border: 1px dashed #93c5fd;
+}
+
+.sticky-box {
+    position: sticky;
+    top: 0;
+    background: #d97706;
+}
+
+.note {
+    padding: 8px;
+    margin-top: 10px;
+    background: #fef3c7;
+    border-left: 4px solid #d97706;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+footer {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 10px;
+    border-top: 1px solid #cbd5e1;
+    padding-top: 7px;
+}
+
+@media print {
+    @page {
+        size: A4 portrait;
+        margin: 0;
+    }
+
+    body {
+        padding: 0;
+        background: white;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .sheet {
+        width: 210mm;
+        min-height: 0;
+        margin: 0;
+        padding: 10mm;
+    }
+
+    .fixed-box {
+        display: none;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <h1>CSS Practical Class</h1>
-    <p style="text-align:center;">
-        Learn CSS properties with examples
+<main class="sheet">
+
+<header>
+    <h1>CSS POSITION PROPERTY</h1>
+    <p>Complete Practical Guide • HTML + CSS Only • A4 Worksheet</p>
+</header>
+
+<!-- STATIC -->
+<section class="example">
+    <h2>1. position: static</h2>
+    <p class="description">
+        Default position. The element follows the normal page flow.
+        top, right, bottom and left do not move it.
     </p>
-
-    <div class="section">
-        <h2>1. Position: Static</h2>
-        <div class="static-box">
-            I stay in my normal position.
-        </div>
+    <div class="demo">
+        <div class="box static-box">Static Box</div>
     </div>
+    <pre class="code">.box {
+    position: static;
+    top: 20px; /* No effect */
+}</pre>
+</section>
 
-    <div class="section">
-        <h2>2. Position: Relative</h2>
-        <div class="relative-box">
-            I move 10px down and 15px right.
-        </div>
-        <p>Notice: original space is still reserved.</p>
+<!-- RELATIVE -->
+<section class="example">
+    <h2>2. position: relative</h2>
+    <p class="description">
+        The element moves relative to its original position.
+        Its original space remains reserved.
+    </p>
+    <div class="demo">
+        <div class="box relative-box">Relative Box</div>
     </div>
+    <pre class="code">.box {
+    position: relative;
+    top: 12px;
+    left: 25px;
+}</pre>
+</section>
 
-    <div class="section">
-        <h2>3. Position: Absolute</h2>
-        <div class="parent">
-            I am the parent box.
-            <div class="absolute-box">
-                Absolute Box
-            </div>
-        </div>
+<!-- ABSOLUTE -->
+<section class="example">
+    <h2>3. position: absolute</h2>
+    <p class="description">
+        The element is positioned relative to its nearest positioned
+        ancestor. It is removed from normal document flow.
+    </p>
+    <div class="absolute-parent">
+        <div class="box absolute-box">Absolute Box</div>
     </div>
+    <pre class="code">.parent {
+    position: relative;
+}
+.box {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}</pre>
+</section>
 
-    <div class="section">
-        <h2>4. Position: Sticky</h2>
-        <p>Scroll the page to see sticky behavior.</p>
-        <div class="sticky-box">
-            I stick to the top while scrolling this page.
-        </div>
-        <p>Scroll down to observe the sticky bar.</p>
+<!-- FIXED -->
+<section class="example">
+    <h2>4. position: fixed</h2>
+    <p class="description">
+        The element normally stays at the same viewport position
+        while the page scrolls.
+    </p>
+    <div class="fixed-demo">
+        <div class="box">Normal Box</div>
+        <p style="font-size:10px; margin:5px;">
+            Look at the red box at the bottom-right of the screen.
+        </p>
     </div>
+    <pre class="code">.box {
+    position: fixed;
+    right: 12px;
+    bottom: 12px;
+}</pre>
+</section>
 
-    <div class="section">
-        <h2>5. Z-index</h2>
-        <div class="overlap">
-            <div class="box-one">Z-index: 1</div>
-            <div class="box-two">Z-index: 2</div>
-        </div>
-        <p>The blue box appears on top.</p>
+<!-- STICKY -->
+<section class="example">
+    <h2>5. position: sticky</h2>
+    <p class="description">
+        The element behaves normally until it reaches a scroll
+        threshold, then sticks within its scrolling container.
+    </p>
+    <div class="sticky-demo">
+        <div class="box sticky-box">Sticky Box</div>
+        <p style="font-size:11px; padding:5px; margin:0;">
+            Scroll inside this box to test sticky positioning.<br>
+            Content line 2<br>
+            Content line 3<br>
+            Content line 4<br>
+            Content line 5<br>
+            Content line 6
+        </p>
     </div>
+    <pre class="code">.box {
+    position: sticky;
+    top: 0;
+}</pre>
+</section>
 
-    <div class="section">
-        <h2>6. Overflow</h2>
-        <div class="overflow-box">
-            This box has limited height. This is extra content.
-            This is more extra content. Keep reading to see
-            how the scrollbar appears when content is larger
-            than the available space inside this box.
-        </div>
-    </div>
+<div class="note">
+    <strong>Important:</strong> Use top, right, bottom and left to
+    control placement where applicable. The z-index property controls
+    stacking order when elements overlap. It is not a position value.
+</div>
 
-    <div class="section">
-        <h2>7. Box Sizing</h2>
-        <div class="sizing-box">
-            My width includes padding and border because
-            box-sizing is border-box.
-        </div>
-    </div>
+<footer>
+    CSS Learning Worksheet • Practice all five position values
+</footer>
 
-    <div class="section">
-        <h2>8. Opacity</h2>
-        <div class="opacity-box">
-            I am 50% opaque.
-        </div>
-    </div>
+</main>
 
-    <div class="section">
-        <h2>9. Cursor</h2>
-        <button class="demo-button">
-            Move your mouse here
-        </button>
-    </div>
-
-    <div class="spacer">
-        <h2>Scroll Area</h2>
-        Scroll up and down to test sticky and fixed.
-    </div>
-
-    <div class="fixed-box">
-        I stay fixed on screen!
-    </div>
+<!-- FIXED ELEMENT: visible on screen, hidden when printing -->
+<div class="box fixed-box">Fixed Box</div>
 
 </body>
 </html>
