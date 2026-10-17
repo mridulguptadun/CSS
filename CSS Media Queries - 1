@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Media Queries</title>
+<style>
+*{box-sizing:border-box}
+body{font-family:Arial;margin:0;padding:20px;background:#f1f5f9;color:#1e293b}
+h1{text-align:center}
+section{max-width:950px;margin:20px auto;background:white;padding:18px;border:1px solid #cbd5e1;border-radius:8px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.card{padding:25px 10px;text-align:center;background:#dbeafe;border:1px solid #93c5fd;border-radius:6px}
+.label{font-family:monospace;color:#b45309;overflow-wrap:anywhere}
+table{border-collapse:collapse;width:100%;margin-top:12px}
+td,th{border:1px solid #cbd5e1;padding:9px;text-align:left}
+th{background:#dbeafe}
+@media(max-width:800px){
+ body{background:#ecfdf5}
+ .cards{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:500px){
+ body{padding:8px;background:#fff7ed}
+ .cards{grid-template-columns:1fr}
+ h1{font-size:24px}
+ section{padding:12px}
+}
+@media(orientation:landscape) and (max-width:800px){
+ h1{font-size:22px}
+}
+@media print{
+ body{background:white;padding:0}
+ section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<h1>CSS Media Queries</h1>
+<section>
+<h2>What is a Media Query?</h2>
+<p>A media query applies CSS rules when a condition, such as screen width, is true.</p>
+<p class="label">@media (max-width: 500px) { ... }</p>
+<p>Make the browser window smaller to see the cards change.</p>
+<div class="cards">
+<div class="card">Card 1</div><div class="card">Card 2</div><div class="card">Card 3</div>
+</div>
+<p class="label">Default: 3 columns | max-width: 800px: 2 columns | max-width: 500px: 1 column</p>
+</section>
+<section>
+<h2>Media Query Reference</h2>
+<table>
+<tr><th>Syntax</th><th>Simple meaning</th></tr>
+<tr><td>@media (max-width: 600px)</td><td>Applies when viewport width is 600px or less.</td></tr>
+<tr><td>@media (min-width: 768px)</td><td>Applies when viewport width is 768px or more.</td></tr>
+<tr><td>@media (min-width: 600px) and (max-width: 900px)</td><td>Applies within a width range.</td></tr>
+<tr><td>@media (orientation: landscape)</td><td>Applies when viewport is wider than it is tall.</td></tr>
+<tr><td>@media (orientation: portrait)</td><td>Applies when viewport is taller than it is wide.</td></tr>
+<tr><td>@media print</td><td>Applies to printed output or print preview.</td></tr>
+<tr><td>@media (prefers-reduced-motion: reduce)</td><td>Detects a preference for less motion.</td></tr>
+</table>
+</section>
+<section>
+<h2>Important Points</h2>
+<ul>
+<li>Use the viewport meta tag for proper mobile scaling.</li>
+<li>Use breakpoints where your content needs to change.</li>
+<li>Media queries can change layout, font size, spacing and visibility.</li>
+<li>Resize the browser to test your responsive design.</li>
+</ul>
+</section>
+</body>
+</html>
