@@ -1,0 +1,698 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LearnHub - CSS Grid Website</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+header {
+    background: #0f172a;
+    color: white;
+    padding: 20px 6%;
+
+    /* CSS GRID PROPERTY: display: grid */
+    display: grid;
+
+    /* CSS GRID PROPERTY: grid-template-columns */
+    grid-template-columns: 1fr auto;
+
+    /* CSS GRID PROPERTY: align-items */
+    align-items: center;
+
+    /* CSS GRID PROPERTY: gap */
+    gap: 15px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #38bdf8;
+}
+
+header p {
+    margin: 5px 0 0;
+    font-size: 13px;
+    color: #cbd5e1;
+}
+
+.header-badge {
+    background: #1e293b;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+nav {
+    background: #1d4ed8;
+    padding: 14px 6%;
+
+    /* CSS GRID PROPERTY: display: grid */
+    display: grid;
+
+    /* CSS GRID PROPERTY: grid-template-columns */
+    grid-template-columns: repeat(4, auto);
+
+    /* CSS GRID PROPERTY: justify-content */
+    justify-content: start;
+
+    /* CSS GRID PROPERTY: gap */
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.hero {
+    padding: 45px 6%;
+    background: linear-gradient(120deg, #dbeafe, #eff6ff);
+
+    /* CSS GRID PROPERTY: display: grid */
+    display: grid;
+
+    /* CSS GRID PROPERTY: grid-template-columns */
+    grid-template-columns: 1.5fr 1fr;
+
+    /* CSS GRID PROPERTY: gap */
+    gap: 30px;
+
+    /* CSS GRID PROPERTY: align-items */
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: clamp(30px, 4vw, 46px);
+    margin: 0 0 15px;
+    color: #0f172a;
+}
+
+.hero p {
+    color: #475569;
+    line-height: 1.7;
+}
+
+.btn {
+    display: inline-block;
+    background: #2563eb;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.hero-visual {
+    background: #2563eb;
+    color: white;
+    min-height: 200px;
+    border-radius: 12px;
+    padding: 25px;
+
+    /* CSS GRID PROPERTY: display: grid */
+    display: grid;
+
+    /* CSS GRID PROPERTY: place-items */
+    place-items: center;
+
+    /* CSS GRID PROPERTY: text-align */
+    text-align: center;
+}
+
+.hero-visual strong {
+    display: block;
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.property-label {
+    display: inline-block;
+    background: #fff7ed;
+    color: #9a3412;
+    border: 1px solid #fed7aa;
+    padding: 6px 9px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: monospace;
+    margin-top: 12px;
+    line-height: 1.6;
+}
+
+.section {
+    padding: 35px 6%;
+}
+
+.section-heading {
+    margin-bottom: 20px;
+
+    /* CSS GRID PROPERTY: display: grid */
+    display: grid;
+
+    /* CSS GRID PROPERTY: grid-template-columns */
+    grid-template-columns: 1fr auto;
+
+    /* CSS GRID PROPERTY: align-items */
+    align-items: center;
+
+    /* CSS GRID PROPERTY: gap */
+    gap: 15px;
+}
+
+.section-heading h2 {
+    margin: 0;
+    font-size: 25px;
+}
+
+.section-heading p {
+    color: #64748b;
+    font-size: 14px;
+    margin: 7px 0 0;
+}
+
+.course-grid {
+    /* CSS GRID PROPERTY: display: grid */
+    display: grid;
+
+    /* CSS GRID PROPERTY: repeat() and minmax() */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    /* CSS GRID PROPERTY: gap */
+    gap: 20px;
+}
+
+.course-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+    overflow: hidden;
+
+    /* CSS GRID PROPERTY: display: grid */
+    display: grid;
+
+    /* CSS GRID PROPERTY: grid-template-rows */
+    grid-template-rows: 110px auto;
+}
+
+.course-color {
+    background: #2563eb;
+    color: white;
+    font-size: 30px;
+
+    /* CSS GRID PROPERTY: place-items */
+    display: grid;
+    place-items: center;
+}
+
+.course-card:nth-child(2) .course-color {
+    background: #059669;
+}
+
+.course-card:nth-child(3) .course-color {
+    background: #9333ea;
+}
+
+.course-info {
+    padding: 18px;
+
+    /* CSS GRID PROPERTY: display: grid */
+    display: grid;
+
+    /* CSS GRID PROPERTY: gap */
+    gap: 10px;
+}
+
+.course-info h3 {
+    margin: 0;
+}
+
+.course-info p {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.course-info a {
+    color: #2563eb;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.tag {
+    background: #dbeafe;
+    color: #1d4ed8;
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    width: fit-content;
+}
+
+.content-layout {
+    padding: 10px 6% 35px;
+
+    /* CSS GRID PROPERTY: display: grid */
+    display: grid;
+
+    /* CSS GRID PROPERTY: grid-template-columns */
+    grid-template-columns: 2fr 1fr;
+
+    /* CSS GRID PROPERTY: gap */
+    gap: 22px;
+
+    /* CSS GRID PROPERTY: align-items */
+    align-items: start;
+}
+
+.main-panel,
+.sidebar {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+    padding: 22px;
+}
+
+.main-panel h2,
+.sidebar h2 {
+    margin-top: 0;
+}
+
+.lesson-list {
+    /* CSS GRID PROPERTY: display: grid */
+    display: grid;
+
+    /* CSS GRID PROPERTY: grid-template-columns */
+    grid-template-columns: 1fr;
+
+    /* CSS GRID PROPERTY: row-gap */
+    row-gap: 12px;
+}
+
+.lesson {
+    background: #f8fafc;
+    padding: 13px;
+    border: 1px solid #e2e8f0;
+    border-radius: 5px;
+
+    /* CSS GRID PROPERTY: display: grid */
+    display: grid;
+
+    /* CSS GRID PROPERTY: grid-template-columns */
+    grid-template-columns: 40px 1fr auto;
+
+    /* CSS GRID PROPERTY: gap */
+    gap: 12px;
+
+    /* CSS GRID PROPERTY: align-items */
+    align-items: center;
+}
+
+.lesson-number {
+    background: #dbeafe;
+    color: #1d4ed8;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.lesson small {
+    color: #64748b;
+}
+
+.duration {
+    color: #475569;
+    font-size: 12px;
+}
+
+.sidebar-list {
+    /* CSS GRID PROPERTY: display: grid */
+    display: grid;
+
+    /* CSS GRID PROPERTY: gap */
+    gap: 12px;
+}
+
+.sidebar-item {
+    padding: 12px;
+    border-radius: 5px;
+    background: #f1f5f9;
+}
+
+.sidebar-item strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.sidebar-item small {
+    color: #64748b;
+}
+
+.stats {
+    background: #0f172a;
+    color: white;
+    padding: 30px 6%;
+
+    /* CSS GRID PROPERTY: display: grid */
+    display: grid;
+
+    /* CSS GRID PROPERTY: grid-template-columns */
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    /* CSS GRID PROPERTY: gap */
+    gap: 20px;
+
+    /* CSS GRID PROPERTY: text-align */
+    text-align: center;
+}
+
+.stat strong {
+    display: block;
+    font-size: 28px;
+    color: #38bdf8;
+}
+
+.stat span {
+    display: block;
+    margin-top: 7px;
+    font-size: 13px;
+    color: #cbd5e1;
+}
+
+footer {
+    padding: 25px 6%;
+    background: #020617;
+    color: #cbd5e1;
+
+    /* CSS GRID PROPERTY: display: grid */
+    display: grid;
+
+    /* CSS GRID PROPERTY: grid-template-columns */
+    grid-template-columns: 1fr auto;
+
+    /* CSS GRID PROPERTY: gap */
+    gap: 15px;
+
+    /* CSS GRID PROPERTY: align-items */
+    align-items: center;
+}
+
+footer p {
+    margin: 0;
+    font-size: 13px;
+}
+
+footer a {
+    color: #38bdf8;
+    text-decoration: none;
+}
+
+/* CSS GRID PROPERTY: @media responsive layout */
+@media (max-width: 750px) {
+    header {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        grid-template-columns: repeat(2, auto);
+        gap: 15px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .course-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .content-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    footer {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .course-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading {
+        grid-template-columns: 1fr;
+    }
+
+    .lesson {
+        grid-template-columns: 35px 1fr;
+    }
+
+    .duration {
+        grid-column: 2;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div>
+        <div class="logo">Learn<span>Hub</span></div>
+        <p>Learn skills. Build your future.</p>
+        <div class="property-label">
+            Properties: display: grid; grid-template-columns; gap; align-items
+        </div>
+    </div>
+
+    <div class="header-badge">HTML + CSS Learning</div>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#courses">Courses</a>
+    <a href="#lessons">Lessons</a>
+    <a href="#about">About</a>
+    <div class="property-label">
+        Properties: grid-template-columns: repeat(); gap; justify-content
+    </div>
+</nav>
+
+<section class="hero" id="home">
+    <div>
+        <h1>Learn Web Development Step by Step</h1>
+        <p>
+            Learn HTML, CSS and website layout with simple examples.
+            Practice every topic and build your own projects.
+        </p>
+        <a class="btn" href="#courses">Explore Courses</a>
+        <div class="property-label">
+            Properties: grid-template-columns: 1.5fr 1fr; gap; align-items
+        </div>
+    </div>
+
+    <div class="hero-visual">
+        <div>
+            <strong>CSS GRID</strong>
+            Rows + Columns
+            <p>Organize your website layout.</p>
+            <div class="property-label">
+                Properties: display: grid; place-items
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="courses">
+    <div class="section-heading">
+        <div>
+            <h2>Popular Courses</h2>
+            <p>Choose a topic and start learning.</p>
+        </div>
+        <div class="property-label">
+            Properties: grid-template-columns; align-items
+        </div>
+    </div>
+
+    <div class="course-grid">
+        <article class="course-card">
+            <div class="course-color">HTML</div>
+            <div class="course-info">
+                <span class="tag">Beginner</span>
+                <h3>HTML Fundamentals</h3>
+                <p>Learn the structure of a web page and common HTML elements.</p>
+                <a href="#lessons">View lessons →</a>
+                <div class="property-label">
+                    Properties: grid-template-rows; gap
+                </div>
+            </div>
+        </article>
+
+        <article class="course-card">
+            <div class="course-color">CSS</div>
+            <div class="course-info">
+                <span class="tag">Beginner</span>
+                <h3>CSS Styling</h3>
+                <p>Style text, colors, boxes, spacing and page layouts.</p>
+                <a href="#lessons">View lessons →</a>
+                <div class="property-label">
+                    Properties: display: grid; gap
+                </div>
+            </div>
+        </article>
+
+        <article class="course-card">
+            <div class="course-color">GRID</div>
+            <div class="course-info">
+                <span class="tag">Practice</span>
+                <h3>CSS Grid Layout</h3>
+                <p>Build flexible rows, columns, cards and responsive layouts.</p>
+                <a href="#lessons">View lessons →</a>
+                <div class="property-label">
+                    Properties: repeat(); minmax(); gap
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section class="content-layout" id="lessons">
+    <div class="main-panel">
+        <h2>Latest Lessons</h2>
+        <p>Practice these lessons in order.</p>
+
+        <div class="lesson-list">
+            <div class="lesson">
+                <div class="lesson-number">01</div>
+                <div>
+                    <strong>Introduction to CSS Grid</strong><br>
+                    <small>Grid containers and grid items</small>
+                </div>
+                <span class="duration">10 min</span>
+            </div>
+
+            <div class="lesson">
+                <div class="lesson-number">02</div>
+                <div>
+                    <strong>Columns and Rows</strong><br>
+                    <small>grid-template-columns and rows</small>
+                </div>
+                <span class="duration">15 min</span>
+            </div>
+
+            <div class="lesson">
+                <div class="lesson-number">03</div>
+                <div>
+                    <strong>Grid Gap and Alignment</strong><br>
+                    <small>Spacing and item alignment</small>
+                </div>
+                <span class="duration">12 min</span>
+            </div>
+
+            <div class="lesson">
+                <div class="lesson-number">04</div>
+                <div>
+                    <strong>Responsive Grid</strong><br>
+                    <small>Media queries and flexible columns</small>
+                </div>
+                <span class="duration">20 min</span>
+            </div>
+        </div>
+
+        <div class="property-label">
+            Properties: display: grid; grid-template-columns; gap; align-items
+        </div>
+    </div>
+
+    <aside class="sidebar">
+        <h2>Quick Tips</h2>
+
+        <div class="sidebar-list">
+            <div class="sidebar-item">
+                <strong>Use fr units</strong>
+                <small>Share available space between columns.</small>
+            </div>
+
+            <div class="sidebar-item">
+                <strong>Use gap</strong>
+                <small>Add space between grid items.</small>
+            </div>
+
+            <div class="sidebar-item">
+                <strong>Use minmax()</strong>
+                <small>Set a minimum and maximum track size.</small>
+            </div>
+        </div>
+
+        <div class="property-label">
+            Properties: display: grid; gap
+        </div>
+    </aside>
+</section>
+
+<section class="stats" id="about">
+    <div class="stat">
+        <strong>12+</strong>
+        <span>Lessons</span>
+    </div>
+
+    <div class="stat">
+        <strong>3</strong>
+        <span>Courses</span>
+    </div>
+
+    <div class="stat">
+        <strong>100%</strong>
+        <span>Practice</span>
+    </div>
+
+    <div class="stat">
+        <strong>Free</strong>
+        <span>Learning</span>
+    </div>
+
+    <div class="property-label">
+        Properties: grid-template-columns: repeat(4, minmax(0, 1fr)); gap
+    </div>
+</section>
+
+<footer>
+    <div>
+        <strong>LearnHub</strong>
+        <p>Practice CSS Grid by building real layouts.</p>
+    </div>
+
+    <p>HTML + CSS | Student Practice Project</p>
+
+    <div class="property-label">
+        Properties: display: grid; grid-template-columns; gap; align-items
+    </div>
+</footer>
+
+</body>
+</html>
