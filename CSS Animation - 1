@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSS Animation Explained</title>
+<style>
+body{font-family:Arial;margin:0;padding:20px;background:#f1f5f9;color:#1e293b}
+section{max-width:850px;margin:20px auto;background:white;padding:20px;border-radius:8px}
+.demo{width:100px;height:70px;background:#2563eb;color:white;display:grid;place-items:center;border-radius:8px;animation:move 3s ease-in-out infinite alternate}
+@keyframes move{from{transform:translateX(0);background:#2563eb}to{transform:translateX(180px);background:#db2777}}
+table{width:100%;border-collapse:collapse}
+td,th{border:1px solid #cbd5e1;padding:9px;text-align:left}
+th{background:#dbeafe}
+code{color:#9a3412;overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<section>
+<h1>CSS Animation</h1>
+<p><b>Definition:</b> CSS Animation changes an element's style automatically over time.</p>
+<h2>Live Example</h2>
+<div class="demo">Moving Box</div>
+<p>The box moves and changes color automatically.</p>
+</section>
+<section>
+<h2>Important Properties</h2>
+<table>
+<tr><th>Property</th><th>Simple explanation</th></tr>
+<tr><td>animation-name</td><td>Sets the name of the animation.</td></tr>
+<tr><td>animation-duration</td><td>Sets how long one animation cycle takes.</td></tr>
+<tr><td>animation-delay</td><td>Waits before the animation starts.</td></tr>
+<tr><td>animation-iteration-count</td><td>Sets how many times it runs; infinite repeats forever.</td></tr>
+<tr><td>animation-direction</td><td>Controls forward or reverse playback.</td></tr>
+<tr><td>animation-timing-function</td><td>Controls the speed pattern.</td></tr>
+<tr><td>animation-fill-mode</td><td>Controls styles before or after the animation.</td></tr>
+<tr><td>animation-play-state</td><td>Can run or pause an animation.</td></tr>
+<tr><td>@keyframes</td><td>Defines the animation's stages.</td></tr>
+<tr><td>animation</td><td>Shorthand for animation settings.</td></tr>
+</table>
+</section>
+<section>
+<h2>Code Used</h2>
+<pre><code>.box {
+  animation: move 3s ease-in-out infinite alternate;
+}
+
+@keyframes move {
+  from { transform: translateX(0); }
+  to   { transform: translateX(180px); }
+}</code></pre>
+</section>
+</body>
+</html>
