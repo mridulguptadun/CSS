@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creative Learning Hub | CSS Practice Project</title>
+<style>
+/* =========================================================
+   CSS VARIABLES: Reusable colors, spacing and shadows
+   ========================================================= */
+:root {
+  --primary: #5b4bdb;
+  --primary-dark: #4032ad;
+  --accent: #ffb703;
+  --ink: #20223a;
+  --muted: #656b80;
+  --surface: #ffffff;
+  --page: #f5f6ff;
+  --border: #e4e6f2;
+  --shadow: 0 12px 30px rgba(36, 34, 85, 0.12);
+  --radius: 18px;
+  --space: 20px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: var(--page);
+  line-height: 1.6;
+}
+
+/* DISPLAY + FLEXBOX + POSITION + Z-INDEX */
+.site-header {
+  position: sticky;          /* POSITION: keeps navbar at top while scrolling */
+  top: 0;
+  z-index: 100;               /* Z-INDEX: places navbar above page content */
+  background: rgba(255,255,255,.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.navbar {
+  max-width: 1150px;
+  margin: auto;
+  padding: 14px 22px;
+  display: flex;              /* DISPLAY: FLEX */
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font-weight: 800;
+  text-decoration: none;
+}
+.brand-icon {
+  display: grid;              /* DISPLAY: GRID */
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  color: white;
+  background: var(--primary);
+  border-radius: 13px;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 9px 12px;
+  border-radius: 10px;
+  transition: background .25s ease, color .25s ease, transform .25s ease; /* TRANSITION */
+}
+.nav-links a:hover {           /* PSEUDO-CLASS :hover */
+  background: #eeecff;
+  color: var(--primary);
+  transform: translateY(-2px); /* TRANSFORM */
+}
+.nav-links a:focus-visible, .btn:focus-visible {
+  outline: 3px solid var(--accent); /* PSEUDO-CLASS :focus-visible */
+  outline-offset: 3px;
+}
+
+/* HERO: GRID + ANIMATION + TEXT SHADOW */
+.hero {
+  max-width: 1150px;
+  margin: 34px auto;
+  padding: 28px 22px;
+  display: grid;               /* DISPLAY: GRID */
+  grid-template-columns: 1.15fr .85fr;
+  align-items: center;
+  gap: 36px;
+}
+.eyebrow {
+  display: inline-block;       /* DISPLAY: INLINE-BLOCK */
+  background: #eae8ff;
+  color: var(--primary-dark);
+  padding: 6px 11px;
+  border-radius: 999px;
+  font-size: .82rem;
+  font-weight: 700;
+}
+.hero h1 {
+  margin: 16px 0;
+  font-size: clamp(2.2rem, 5vw, 4.3rem);
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+  text-shadow: 0 3px 0 rgba(91,75,219,.08); /* TEXT-SHADOW */
+}
+.hero h1 span { color: var(--primary); }
+.hero p { max-width: 620px; color: var(--muted); font-size: 1.08rem; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+.btn {
+  display: inline-block;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+.btn-primary { background: var(--primary); color: white; box-shadow: 0 7px 16px rgba(91,75,219,.24); }
+.btn-secondary { background: white; color: var(--ink); border: 1px solid var(--border); }
+.btn:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.btn-primary:hover { background: var(--primary-dark); }
+
+/* ANIMATION: @keyframes */
+.hero-art {
+  position: relative;
+  min-height: 320px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;            /* OVERFLOW: hides shapes outside this area */
+  border-radius: 28px;
+  background: linear-gradient(135deg, #dedaff, #fff0d3);
+}
+.art-circle {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8174ff, #5b4bdb);
+  animation: float 4s ease-in-out infinite; /* ANIMATION */
+}
+.art-card {
+  position: relative;
+  z-index: 2;
+  width: min(78%, 280px);
+  padding: 24px;
+  background: rgba(255,255,255,.92);
+  border: 1px solid white;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  transform: rotate(-4deg);
+  animation: arrive .8s ease both;
+}
+.art-card strong { display: block; font-size: 1.25rem; }
+.art-card small { color: var(--muted); }
+.art-progress { height: 9px; margin-top: 18px; border-radius: 99px; background: #e9e7ff; overflow: hidden; }
+.art-progress span { display: block; height: 100%; width: 78%; background: var(--primary); animation: grow 1.5s ease both; }
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-16px) scale(1.04); }
+}
+@keyframes arrive {
+  from { opacity: 0; transform: translateY(20px) rotate(-4deg); }
+  to { opacity: 1; transform: translateY(0) rotate(-4deg); }
+}
+@keyframes grow { from { width: 0; } to { width: 78%; } }
+
+/* GENERAL SECTIONS */
+.section {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 34px 22px;
+}
+.section-heading {
+  display: flex;               /* FLEXBOX */
+  justify-content: space-between;
+  align-items: end;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+.section-heading h2 { margin: 0; font-size: clamp(1.6rem, 3vw, 2.2rem); }
+.section-heading p { margin: 5px 0 0; color: var(--muted); }
+.property-note {
+  display: inline-block;
+  margin-top: 9px;
+  padding: 5px 9px;
+  background: #f0efff;
+  color: var(--primary-dark);
+  border: 1px solid #dfdcff;
+  border-radius: 8px;
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+/* GRID + PSEUDO-CLASSES + FILTERS + SHADOWS */
+.course-grid {
+  display: grid;               /* DISPLAY: GRID */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space);
+}
+.course-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;            /* OVERFLOW */
+  box-shadow: 0 4px 14px rgba(36,34,85,.05); /* BOX-SHADOW */
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.course-card:hover {            /* PSEUDO-CLASS :hover */
+  transform: translateY(-7px) scale(1.01);
+  box-shadow: var(--shadow);
+}
+.course-card:nth-child(2) { border-top: 4px solid #ffb703; } /* :nth-child(2) */
+.course-card:nth-child(3) { border-top: 4px solid #24b47e; } /* :nth-child(3) */
+.course-art {
+  height: 145px;
+  display: grid;
+  place-items: center;
+  font-size: 3.2rem;
+  background: linear-gradient(135deg, #e6e2ff, #f7f6ff);
+}
+.course-card:nth-child(2) .course-art { background: linear-gradient(135deg, #fff0c2, #fff9e8); }
+.course-card:nth-child(3) .course-art { background: linear-gradient(135deg, #d8f8e9, #f1fff8); }
+.course-body { padding: 18px; }
+.course-body h3 { margin: 0 0 7px; }
+.course-body p { margin: 0; color: var(--muted); }
+.course-footer { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 16px; }
+.tag { background: #f0efff; color: var(--primary-dark); border-radius: 7px; padding: 4px 8px; font-size: .78rem; font-weight: 700; }
+
+/* OVERFLOW DEMO */
+.announcement {
+  max-height: 105px;
+  overflow-y: auto;             /* OVERFLOW: vertical scrolling */
+  padding: 18px 20px;
+  background: white;
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--accent);
+  border-radius: 14px;
+  color: var(--muted);
+}
+.announcement strong { color: var(--ink); }
+
+/* FILTERS */
+.filter-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space); }
+.filter-demo {
+  padding: 18px;
+  border-radius: var(--radius);
+  background: white;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+.filter-picture {
+  display: grid;
+  place-items: center;
+  min-height: 100px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #fbe7ff, #dfe7ff);
+}
+.grayscale { filter: grayscale(100%); }  /* FILTER: GRAYSCALE */
+.brightness { filter: brightness(1.2); } /* FILTER: BRIGHTNESS */
+.blur { filter: blur(1px); }             /* FILTER: BLUR */
+
+/* FORM + PSEUDO-CLASSES */
+.join-panel {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 28px;
+  align-items: start;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 26px;
+  box-shadow: var(--shadow);
+}
+.join-panel h2 { margin-top: 0; }
+.join-panel p { color: var(--muted); }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field.full { grid-column: 1 / -1; }
+label { font-weight: 700; font-size: .9rem; }
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  font: inherit;
+  border: 1px solid #cfd2e2;
+  border-radius: 10px;
+  background: white;
+}
+input:focus, select:focus, textarea:focus { /* PSEUDO-CLASS :focus */
+  outline: 3px solid #e1deff;
+  border-color: var(--primary);
+}
+input:required { border-left: 4px solid var(--primary); } /* :required */
+input:optional { border-left: 4px solid #24b47e; } /* :optional */
+input:disabled { background: #eeeeF4; cursor: not-allowed; } /* :disabled */
+.check-line { display: flex; align-items: center; gap: 9px; }
+.check-line input { width: auto; }
+.check-line input:checked { accent-color: var(--primary); } /* :checked */
+
+/* DISPLAY: NONE demonstration */
+.hidden-demo { display: none; } /* DISPLAY: NONE — this element is hidden */
+
+/* FOOTER + FLOATING BUTTON */
+footer { margin-top: 42px; padding: 28px 22px; background: #20223a; color: #fff; text-align: center; }
+footer p { margin: 5px 0; color: #d4d6e6; }
+.back-top {
+  position: fixed;              /* POSITION: FIXED */
+  right: 20px;
+  bottom: 20px;
+  z-index: 50;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  transition: transform .2s ease;
+}
+.back-top:hover { transform: translateY(-4px); }
+
+/* MEDIA QUERIES: tablet and mobile responsive layouts */
+@media (max-width: 850px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-art { min-height: 260px; }
+  .course-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .join-panel { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .navbar { align-items: flex-start; flex-direction: column; }
+  .nav-links { gap: 4px; }
+  .nav-links a { padding: 7px 9px; font-size: .9rem; }
+  .hero { margin-top: 12px; gap: 22px; }
+  .course-grid, .filter-grid { grid-template-columns: 1fr; }
+  .section-heading { align-items: flex-start; flex-direction: column; }
+  .form-grid { grid-template-columns: 1fr; }
+  .field.full { grid-column: auto; }
+  .join-panel { padding: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+<body id="top">
+
+<header class="site-header">
+  <nav class="navbar" aria-label="Main navigation">
+    <a class="brand" href="#top">
+      <span class="brand-icon">CL</span>
+      <span>Creative Learning Hub</span>
+    </a>
+    <div class="nav-links">
+      <a href="#courses">Courses</a>
+      <a href="#updates">Updates</a>
+      <a href="#filters">Effects</a>
+      <a href="#join">Join Us</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div>
+      <span class="eyebrow">LEARN • PRACTISE • CREATE</span>
+      <h1>Build skills.<br><span>Create your future.</span></h1>
+      <p>A beginner-friendly learning website made with HTML and CSS. Explore the page and inspect the CSS labels to see how each property works.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#courses">Explore Courses →</a>
+        <a class="btn btn-secondary" href="#join">Join the Hub</a>
+      </div>
+      <span class="property-note">Properties: display, grid, flex, gap, text-shadow, transition</span>
+    </div>
+    <div class="hero-art" aria-label="Animated course progress illustration">
+      <div class="art-circle"></div>
+      <div class="art-card">
+        <small>YOUR LEARNING JOURNEY</small>
+        <strong>You're making progress!</strong>
+        <p>Keep practising a little every day.</p>
+        <div class="art-progress"><span></span></div>
+        <small>78% learning goal</small>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="courses">
+    <div class="section-heading">
+      <div>
+        <h2>Popular Courses</h2>
+        <p>Cards use Grid, shadows, filters, transitions and pseudo-classes.</p>
+      </div>
+      <span class="property-note">CSS Grid: repeat(3, 1fr)</span>
+    </div>
+    <div class="course-grid">
+      <article class="course-card">
+        <div class="course-art">💻</div>
+        <div class="course-body">
+          <span class="tag">BEGINNER</span>
+          <h3>Web Development</h3>
+          <p>Learn how websites are structured and styled with HTML and CSS.</p>
+          <div class="course-footer"><strong>6 lessons</strong><a href="#join">Learn more ↗</a></div>
+        </div>
+      </article>
+      <article class="course-card">
+        <div class="course-art">🎨</div>
+        <div class="course-body">
+          <span class="tag">CREATIVE</span>
+          <h3>UI Design Basics</h3>
+          <p>Practise colors, spacing, typography and clean page layouts.</p>
+          <div class="course-footer"><strong>8 lessons</strong><a href="#join">Learn more ↗</a></div>
+        </div>
+      </article>
+      <article class="course-card">
+        <div class="course-art">🚀</div>
+        <div class="course-body">
+          <span class="tag">PRACTICAL</span>
+          <h3>Project Lab</h3>
+          <p>Use your new skills to build small projects and a portfolio.</p>
+          <div class="course-footer"><strong>5 projects</strong><a href="#join">Learn more ↗</a></div>
+        </div>
+      </article>
+    </div>
+    <p class="property-note">Properties: display:grid, grid-template-columns, gap, overflow:hidden, box-shadow, transform, filter, transition; pseudo-classes: :hover and :nth-child()</p>
+  </section>
+
+  <section class="section" id="updates">
+    <div class="section-heading">
+      <div>
+        <h2>Latest Learning Updates</h2>
+        <p>This box has a limited height so its content can scroll.</p>
+      </div>
+      <span class="property-note">overflow-y: auto</span>
+    </div>
+    <div class="announcement">
+      <strong>📢 New practice challenge:</strong> Build a responsive profile card using Grid or Flexbox.<br><br>
+      <strong>Tip 1:</strong> Start with a simple layout, then add spacing and colors.<br>
+      <strong>Tip 2:</strong> Use a media query to make the layout fit smaller screens.<br>
+      <strong>Tip 3:</strong> Try hovering over the course cards to see the transition and transform effects.<br>
+      <strong>Tip 4:</strong> Inspect the registration form to explore :focus, :required and :checked.<br>
+      <strong>Tip 5:</strong> Change a CSS variable near the top of the stylesheet to recolor the site.
+    </div>
+  </section>
+
+  <section class="section" id="filters">
+    <div class="section-heading">
+      <div>
+        <h2>CSS Filter Playground</h2>
+        <p>These sample illustrations show common filter effects.</p>
+      </div>
+      <span class="property-note">filter: grayscale() / brightness() / blur()</span>
+    </div>
+    <div class="filter-grid">
+      <div class="filter-demo">
+        <div class="filter-picture grayscale">🌈 🌱 ☀️</div>
+        <strong>Grayscale</strong>
+        <p>filter: grayscale(100%)</p>
+      </div>
+      <div class="filter-demo">
+        <div class="filter-picture brightness">🌈 🌱 ☀️</div>
+        <strong>Brightness</strong>
+        <p>filter: brightness(1.2)</p>
+      </div>
+      <div class="filter-demo">
+        <div class="filter-picture blur">🌈 🌱 ☀️</div>
+        <strong>Blur</strong>
+        <p>filter: blur(1px)</p>
+      </div>
+    </div>
+    <p class="property-note">Shadow examples: box-shadow on cards and buttons; text-shadow on the main heading.</p>
+  </section>
+
+  <section class="section" id="join">
+    <div class="join-panel">
+      <div>
+        <span class="eyebrow">BECOME A LEARNER</span>
+        <h2>Join Creative Learning Hub</h2>
+        <p>This sample form demonstrates focus, required, optional, checked and disabled pseudo-classes. It is a front-end demo and does not send data to a server.</p>
+        <span class="property-note">Properties: display:grid, gap, padding, border-radius, box-shadow</span>
+      </div>
+      <form action="#join" method="get">
+        <div class="form-grid">
+          <div class="field">
+            <label for="student-name">Full name (required)</label>
+            <input id="student-name" name="name" type="text" placeholder="Enter your name" required>
+          </div>
+          <div class="field">
+            <label for="student-email">Email (required)</label>
+            <input id="student-email" name="email" type="email" placeholder="name@example.com" required>
+          </div>
+          <div class="field">
+            <label for="student-course">Choose a course</label>
+            <select id="student-course" name="course">
+              <option>Web Development</option>
+              <option>UI Design Basics</option>
+              <option>Project Lab</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="student-phone">Phone (optional)</label>
+            <input id="student-phone" name="phone" type="tel" placeholder="Optional phone number">
+          </div>
+          <div class="field full">
+            <label for="student-message">What do you want to learn?</label>
+            <textarea id="student-message" name="message" rows="3" placeholder="Write a short message..."></textarea>
+          </div>
+          <div class="field full">
+            <label class="check-line"><input type="checkbox" required> I agree to practise and learn regularly.</label>
+          </div>
+          <div class="field full">
+            <button class="btn btn-primary" type="submit">Submit Demo Form</button>
+            <small>Required fields must be filled before submitting.</small>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <div class="hidden-demo">This element is hidden by display: none.</div>
+</main>
+
+<footer>
+  <strong>Creative Learning Hub</strong>
+  <p>A CSS learning project — explore the source code and find each property label.</p>
+  <p>Built with HTML and CSS only.</p>
+</footer>
+
+<a class="back-top" href="#top" aria-label="Back to top">↑</a>
+</body>
+</html>
+
