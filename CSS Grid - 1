@@ -1,0 +1,489 @@
+CSS Grid Properties
+--------------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Grid Properties</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+h1 {
+    text-align: center;
+    color: #0f172a;
+}
+
+h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.section {
+    background: white;
+    padding: 15px;
+    margin: 18px auto;
+    max-width: 1000px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+}
+
+.property {
+    color: #b45309;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.grid {
+    display: grid;
+    gap: 8px;
+    background: #e2e8f0;
+    padding: 8px;
+    margin-top: 10px;
+}
+
+.item {
+    background: #2563eb;
+    color: white;
+    padding: 14px 8px;
+    text-align: center;
+    border-radius: 4px;
+    min-width: 0;
+}
+
+.three-columns {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.fixed-columns {
+    grid-template-columns: 100px 200px 100px;
+}
+
+.repeat-columns {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.mixed-columns {
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+.two-rows {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 60px 100px;
+}
+
+.column-gap {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 25px;
+}
+
+.row-gap {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 25px;
+}
+
+.center-items {
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+
+.center-items .item {
+    width: 75%;
+}
+
+.align-items {
+    grid-template-columns: repeat(3, 1fr);
+    height: 130px;
+    align-items: center;
+}
+
+.place-items {
+    grid-template-columns: repeat(3, 1fr);
+    height: 130px;
+    place-items: center;
+}
+
+.place-items .item {
+    width: 75%;
+}
+
+.justify-content {
+    grid-template-columns: repeat(3, 100px);
+    justify-content: center;
+}
+
+.align-content {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 35px 35px;
+    height: 130px;
+    align-content: center;
+}
+
+.place-content {
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: 35px 35px;
+    height: 130px;
+    place-content: center;
+}
+
+.span-column {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.span-column .item:first-child {
+    grid-column: span 2;
+}
+
+.span-row {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 55px 55px;
+}
+
+.span-row .item:first-child {
+    grid-row: span 2;
+}
+
+.area-grid {
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: "left main right";
+}
+
+.left  { grid-area: left; }
+.main  { grid-area: main; }
+.right { grid-area: right; }
+
+.named-area {
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas:
+        "header header"
+        "sidebar content"
+        "footer footer";
+}
+
+.header  { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.content { grid-area: content; }
+.footer  { grid-area: footer; }
+
+.auto-flow {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: column;
+    grid-template-rows: repeat(2, 45px);
+}
+
+.auto-rows {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 70px;
+}
+
+.auto-columns {
+    grid-template-columns: 100px 100px;
+    grid-auto-columns: 100px;
+    grid-auto-flow: column;
+}
+
+.auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}
+
+.grid-shorthand {
+    grid: auto-flow 50px / repeat(3, 1fr);
+}
+
+.small-item {
+    padding: 8px 3px;
+}
+
+.note {
+    font-size: 14px;
+    color: #475569;
+    margin-bottom: 8px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .three-columns,
+    .repeat-columns,
+    .mixed-columns,
+    .two-rows,
+    .column-gap,
+    .row-gap,
+    .center-items,
+    .align-items,
+    .place-items,
+    .span-column,
+    .span-row,
+    .area-grid,
+    .auto-flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .area-grid {
+        grid-template-areas: "left main" "right right";
+    }
+
+    .named-area {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "content"
+            "footer";
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h1>CSS Grid Properties</h1>
+<p style="text-align:center">Simple examples for students</p>
+
+<section class="section">
+<h2>1. display: grid</h2>
+<p class="note">Creates a Grid container.</p>
+<div class="grid three-columns">
+<div class="item">1</div><div class="item">2</div><div class="item">3</div>
+</div>
+</section>
+
+<section class="section">
+<h2>2. grid-template-columns</h2>
+<p class="note">Sets the number and width of columns.</p>
+<div class="grid fixed-columns">
+<div class="item">100px</div><div class="item">200px</div><div class="item">100px</div>
+</div>
+</section>
+
+<section class="section">
+<h2>3. repeat() and fr</h2>
+<p class="note">repeat(3, 1fr) creates three equal-width columns.</p>
+<div class="grid repeat-columns">
+<div class="item">1fr</div><div class="item">1fr</div><div class="item">1fr</div>
+</div>
+</section>
+
+<section class="section">
+<h2>4. Different fr values</h2>
+<p class="note">grid-template-columns: 1fr 2fr 1fr</p>
+<div class="grid mixed-columns">
+<div class="item">1fr</div><div class="item">2fr</div><div class="item">1fr</div>
+</div>
+</section>
+
+<section class="section">
+<h2>5. grid-template-rows</h2>
+<p class="note">Sets the height of rows.</p>
+<div class="grid two-rows">
+<div class="item">Row 1</div><div class="item">Row 1</div>
+<div class="item">Row 2</div><div class="item">Row 2</div>
+</div>
+</section>
+
+<section class="section">
+<h2>6. gap</h2>
+<p class="note">Adds space between rows and columns.</p>
+<div class="grid three-columns" style="gap:20px">
+<div class="item">1</div><div class="item">2</div><div class="item">3</div>
+<div class="item">4</div><div class="item">5</div><div class="item">6</div>
+</div>
+</section>
+
+<section class="section">
+<h2>7. column-gap</h2>
+<p class="note">Adds horizontal space between columns.</p>
+<div class="grid column-gap">
+<div class="item">1</div><div class="item">2</div><div class="item">3</div>
+<div class="item">4</div><div class="item">5</div><div class="item">6</div>
+</div>
+</section>
+
+<section class="section">
+<h2>8. row-gap</h2>
+<p class="note">Adds vertical space between rows.</p>
+<div class="grid row-gap">
+<div class="item">1</div><div class="item">2</div><div class="item">3</div>
+<div class="item">4</div><div class="item">5</div><div class="item">6</div>
+</div>
+</section>
+
+<section class="section">
+<h2>9. grid-column</h2>
+<p class="note">Makes an item span multiple columns.</p>
+<div class="grid span-column">
+<div class="item">Spans 2 columns</div>
+<div class="item">2</div><div class="item">3</div><div class="item">4</div>
+</div>
+</section>
+
+<section class="section">
+<h2>10. grid-row</h2>
+<p class="note">Makes an item span multiple rows.</p>
+<div class="grid span-row">
+<div class="item">Spans 2 rows</div>
+<div class="item">2</div><div class="item">3</div><div class="item">4</div>
+<div class="item">5</div>
+</div>
+</section>
+
+<section class="section">
+<h2>11. justify-items</h2>
+<p class="note">Aligns items horizontally inside their grid cells.</p>
+<div class="grid center-items">
+<div class="item">1</div><div class="item">2</div><div class="item">3</div>
+</div>
+</section>
+
+<section class="section">
+<h2>12. align-items</h2>
+<p class="note">Aligns items vertically inside their grid cells.</p>
+<div class="grid align-items">
+<div class="item">1</div><div class="item">2</div><div class="item">3</div>
+</div>
+</section>
+
+<section class="section">
+<h2>13. place-items</h2>
+<p class="note">Sets align-items and justify-items together.</p>
+<div class="grid place-items">
+<div class="item">1</div><div class="item">2</div><div class="item">3</div>
+</div>
+</section>
+
+<section class="section">
+<h2>14. justify-content</h2>
+<p class="note">Aligns the whole grid horizontally inside its container.</p>
+<div class="grid justify-content">
+<div class="item">1</div><div class="item">2</div><div class="item">3</div>
+</div>
+</section>
+
+<section class="section">
+<h2>15. align-content</h2>
+<p class="note">Aligns the whole grid vertically when extra space exists.</p>
+<div class="grid align-content">
+<div class="item">1</div><div class="item">2</div><div class="item">3</div>
+<div class="item">4</div><div class="item">5</div><div class="item">6</div>
+</div>
+</section>
+
+<section class="section">
+<h2>16. place-content</h2>
+<p class="note">Sets align-content and justify-content together.</p>
+<div class="grid place-content">
+<div class="item">1</div><div class="item">2</div><div class="item">3</div>
+<div class="item">4</div><div class="item">5</div><div class="item">6</div>
+</div>
+</section>
+
+<section class="section">
+<h2>17. grid-template-areas and grid-area</h2>
+<p class="note">Names grid areas and places items into those areas.</p>
+<div class="grid area-grid">
+<div class="item left">Left</div>
+<div class="item main">Main</div>
+<div class="item right">Right</div>
+</div>
+</section>
+
+<section class="section">
+<h2>18. Multiple named areas</h2>
+<p class="note">Useful for headers, sidebars, content and footers.</p>
+<div class="grid named-area">
+<div class="item header">Header</div>
+<div class="item sidebar">Sidebar</div>
+<div class="item content">Content</div>
+<div class="item footer">Footer</div>
+</div>
+</section>
+
+<section class="section">
+<h2>19. grid-auto-flow</h2>
+<p class="note">Controls how automatically placed items fill the grid.</p>
+<div class="grid auto-flow">
+<div class="item">1</div><div class="item">2</div><div class="item">3</div>
+<div class="item">4</div><div class="item">5</div><div class="item">6</div>
+</div>
+</section>
+
+<section class="section">
+<h2>20. grid-auto-rows</h2>
+<p class="note">Sets the size of rows created automatically.</p>
+<div class="grid auto-rows">
+<div class="item">1</div><div class="item">2</div><div class="item">3</div>
+<div class="item">4</div><div class="item">5</div>
+</div>
+</section>
+
+<section class="section">
+<h2>21. grid-auto-columns</h2>
+<p class="note">Sets the size of columns created automatically.</p>
+<div class="grid auto-columns">
+<div class="item">1</div><div class="item">2</div>
+<div class="item">3</div><div class="item">4</div>
+</div>
+</section>
+
+<section class="section">
+<h2>22. minmax() and auto-fit</h2>
+<p class="note">Creates flexible columns that adjust to available space.</p>
+<div class="grid auto-fit">
+<div class="item">Card 1</div><div class="item">Card 2</div>
+<div class="item">Card 3</div><div class="item">Card 4</div>
+</div>
+</section>
+
+<section class="section">
+<h2>23. grid shorthand</h2>
+<p class="note">Sets row and column layout in one declaration.</p>
+<div class="grid grid-shorthand">
+<div class="item">1</div><div class="item">2</div><div class="item">3</div>
+<div class="item">4</div><div class="item">5</div><div class="item">6</div>
+</div>
+</section>
+
+<section class="section">
+<h2>Quick Reference Table</h2>
+<table border="1" cellpadding="8" cellspacing="0" width="100%">
+<tr><th>Property / Value</th><th>Simple meaning</th></tr>
+<tr><td>display: grid</td><td>Turns an element into a Grid container.</td></tr>
+<tr><td>grid-template-columns</td><td>Defines columns.</td></tr>
+<tr><td>grid-template-rows</td><td>Defines rows.</td></tr>
+<tr><td>gap</td><td>Space between grid items.</td></tr>
+<tr><td>grid-column</td><td>Controls an item's column span or position.</td></tr>
+<tr><td>grid-row</td><td>Controls an item's row span or position.</td></tr>
+<tr><td>grid-area</td><td>Places an item in a named area or sets its grid lines.</td></tr>
+<tr><td>grid-template-areas</td><td>Creates named layout areas.</td></tr>
+<tr><td>justify-items</td><td>Aligns items horizontally within cells.</td></tr>
+<tr><td>align-items</td><td>Aligns items vertically within cells.</td></tr>
+<tr><td>place-items</td><td>Combines align-items and justify-items.</td></tr>
+<tr><td>justify-content</td><td>Aligns the grid horizontally.</td></tr>
+<tr><td>align-content</td><td>Aligns the grid vertically.</td></tr>
+<tr><td>place-content</td><td>Combines align-content and justify-content.</td></tr>
+<tr><td>grid-auto-flow</td><td>Controls automatic item placement.</td></tr>
+<tr><td>grid-auto-rows</td><td>Sizes automatically created rows.</td></tr>
+<tr><td>grid-auto-columns</td><td>Sizes automatically created columns.</td></tr>
+<tr><td>grid</td><td>Shorthand for setting Grid layout.</td></tr>
+<tr><td>repeat()</td><td>Repeats a track pattern.</td></tr>
+<tr><td>minmax()</td><td>Sets a minimum and maximum track size.</td></tr>
+<tr><td>fr</td><td>A fraction of available space.</td></tr>
+</table>
+</section>
+
+</body>
+</html>
