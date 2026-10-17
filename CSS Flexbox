@@ -1,76 +1,336 @@
-display:           flex	It places elements in a flexible layout, usually in a row.	       display: flex;
-flex-direction	   It sets the direction of items in a flex container.	                   flex-direction: column;
-justify-content	   It aligns items along the main axis.	                                   justify-content: center;
-align-items	       It aligns items along the cross axis.	                                 align-items: center;
-flex-wrap	         It allows items to move to the next line when needed.	                 flex-wrap: wrap;
-gap	               It adds space between flex items.	                                     gap: 10px;
-flex-grow	         It allows an item to grow and use extra space.	                         flex-grow: 1;
-flex-shrink	       It controls how much an item shrinks when space is limited.	           flex-shrink: 0;
-flex-basis	       It sets an item's initial main-axis size.	                             flex-basis: 200px;
-align-self	       It aligns one item differently from the other items.	                   align-self: flex-end;
-order	             It changes the visual order of flex items.	                             order: 2;
+Page 1: Properties ka quick revision
+Property	       Easy English meaning
+display: flex	   Creates a flex container.
+flex-direction	   Sets the direction of items.
+flex-wrap	       Allows items to move onto new lines.
+flex-flow	       Shorthand for direction and wrapping.
+justify-content	   Aligns items along the main axis.
+align-items	       Aligns items along the cross axis.
+align-content	   Arranges multiple flex lines.
+gap	               Adds space between items.
+order	           Changes the visual order of an item.
+flex-grow	       Controls how an item grows.
+flex-shrink	       Controls how an item shrinks.
+flex-basis	       Sets an item's initial main size.
+flex	           Shorthand for grow, shrink and basis.
+align-self	       Aligns one item differently.
 
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Flexbox Example</title>
+<meta charset="UTF-8">
+<title>CSS Flexbox Properties</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f1f5f9;
-            text-align: center;
-        }
+<style>
+* { box-sizing: border-box; }
 
-        .container {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            padding: 20px;
-            background: #dbeafe;
-        }
+body {
+    margin: 0;
+    padding: 12px;
+    background: #e2e8f0;
+    font-family: Arial, sans-serif;
+    color: #1e293b;
+}
 
-        .box {
-            flex-basis: 100px;
-            padding: 25px 10px;
-            background: #2563eb;
-            color: white;
-            border-radius: 8px;
-        }
+.page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: auto;
+    padding: 8mm;
+    background: white;
+}
 
-        .special {
-            order: 1;
-            flex-grow: 1;
-            align-self: flex-end;
-        }
+h1 {
+    margin: 0;
+    text-align: center;
+    color: #1d4ed8;
+    font-size: 24px;
+}
 
-        @media (max-width: 400px) {
-            .container {
-                flex-direction: column;
-            }
+.subtitle {
+    text-align: center;
+    font-size: 11px;
+    margin: 6px 0 14px;
+}
 
-            .special {
-                align-self: center;
-            }
-        }
-    </style>
+.section {
+    margin-bottom: 12px;
+    padding: 9px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+}
+
+h2 {
+    margin: 0 0 6px;
+    font-size: 14px;
+    color: #1d4ed8;
+}
+
+p {
+    margin: 4px 0 8px;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.demo {
+    display: flex;
+    min-height: 48px;
+    padding: 5px;
+    gap: 5px;
+    background: #eff6ff;
+    border: 1px dashed #93c5fd;
+}
+
+.item {
+    min-width: 35px;
+    min-height: 30px;
+    padding: 8px;
+    background: #2563eb;
+    color: white;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 10px;
+}
+
+/* JUSTIFY CONTENT */
+.start { justify-content: flex-start; }
+.center { justify-content: center; }
+.end { justify-content: flex-end; }
+.between { justify-content: space-between; }
+.around { justify-content: space-around; }
+.evenly { justify-content: space-evenly; }
+
+/* ALIGN ITEMS */
+.align-start { align-items: flex-start; height: 65px; }
+.align-center { align-items: center; height: 65px; }
+.align-end { align-items: flex-end; height: 65px; }
+.stretch { align-items: stretch; height: 55px; }
+
+.align-demo-item {
+    min-height: 0;
+}
+
+/* DIRECTION */
+.row { flex-direction: row; }
+.column { flex-direction: column; }
+.row-reverse { flex-direction: row-reverse; }
+
+/* WRAP */
+.wrap { flex-wrap: wrap; }
+.nowrap { flex-wrap: nowrap; }
+
+/* ALIGN CONTENT */
+.content-center {
+    flex-wrap: wrap;
+    align-content: center;
+    height: 85px;
+}
+
+.content-between {
+    flex-wrap: wrap;
+    align-content: space-between;
+    height: 85px;
+}
+
+/* FLEX ITEMS */
+.grow-demo .grow {
+    flex-grow: 1;
+}
+
+.shrink-demo .shrink {
+    flex-shrink: 1;
+    width: 120px;
+}
+
+.shrink-demo .no-shrink {
+    flex-shrink: 0;
+    width: 120px;
+}
+
+.basis-demo .basis {
+    flex-basis: 100px;
+}
+
+.self-demo {
+    align-items: flex-start;
+    height: 65px;
+}
+
+.self-center {
+    align-self: center;
+}
+
+.self-end {
+    align-self: flex-end;
+}
+
+.order-demo .first {
+    order: 2;
+}
+
+.order-demo .second {
+    order: 1;
+}
+
+.order-demo .third {
+    order: 3;
+}
+
+.note {
+    margin-top: 10px;
+    padding: 8px;
+    background: #fef3c7;
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+@page {
+    size: A4 portrait;
+    margin: 0;
+}
+
+@media print {
+    body {
+        padding: 0;
+        background: white;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0;
+    }
+}
+</style>
 </head>
+
 <body>
+<main class="page">
 
-    <h1>CSS Flexbox</h1>
-    <p>Flexbox helps arrange items in a layout.</p>
+<h1>CSS FLEXBOX PROPERTIES</h1>
+<div class="subtitle">
+    Simple Visual Guide • Parent Properties & Item Properties
+</div>
 
-    <div class="container">
-        <div class="box">Box 1</div>
-        <div class="box special">Box 2</div>
-        <div class="box">Box 3</div>
-    </div>
+<section class="section">
+<h2>1. display: flex</h2>
+<p>Turns an element into a flex container. Its direct children become flex items.</p>
+<div class="demo">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+</div>
+</section>
 
+<section class="section">
+<h2>2. flex-direction</h2>
+<p>Controls the direction of the flex items.</p>
+<p><b>row</b> = horizontal | <b>column</b> = vertical | <b>row-reverse</b> = reversed horizontal order</p>
+<div class="demo row">
+    <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+</div>
+<div class="demo column" style="height:115px; margin-top:5px;">
+    <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+</div>
+</section>
+
+<section class="section">
+<h2>3. justify-content</h2>
+<p>Arranges items along the main axis.</p>
+<p>flex-start | center | flex-end | space-between | space-around | space-evenly</p>
+<div class="demo start"><div class="item">1</div><div class="item">2</div><div class="item">3</div></div>
+<div class="demo center" style="margin-top:4px;"><div class="item">1</div><div class="item">2</div><div class="item">3</div></div>
+<div class="demo between" style="margin-top:4px;"><div class="item">1</div><div class="item">2</div><div class="item">3</div></div>
+<div class="demo evenly" style="margin-top:4px;"><div class="item">1</div><div class="item">2</div><div class="item">3</div></div>
+</section>
+
+<section class="section">
+<h2>4. align-items</h2>
+<p>Aligns items along the cross axis on a single flex line.</p>
+<p>flex-start | center | flex-end | stretch | baseline</p>
+<div class="demo align-start"><div class="item">1</div><div class="item">2</div><div class="item">3</div></div>
+<div class="demo align-center" style="margin-top:4px;"><div class="item">1</div><div class="item">2</div><div class="item">3</div></div>
+<div class="demo align-end" style="margin-top:4px;"><div class="item">1</div><div class="item">2</div><div class="item">3</div></div>
+</section>
+
+<section class="section">
+<h2>5. flex-wrap</h2>
+<p>Controls whether items stay on one line or wrap onto new lines.</p>
+<div class="demo wrap">
+    <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+    <div class="item">4</div><div class="item">5</div><div class="item">6</div>
+    <div class="item">7</div><div class="item">8</div><div class="item">9</div>
+</div>
+</section>
+
+<section class="section">
+<h2>6. gap</h2>
+<p>Adds space between flex items without adding space outside the container.</p>
+<div class="demo" style="gap:15px;">
+    <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+</div>
+</section>
+
+<section class="section">
+<h2>7. align-content</h2>
+<p>Controls spacing between multiple flex lines when wrapping occurs and extra cross-axis space is available.</p>
+<div class="demo content-center">
+    <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+    <div class="item">4</div><div class="item">5</div><div class="item">6</div>
+    <div class="item">7</div><div class="item">8</div><div class="item">9</div>
+</div>
+</section>
+
+<section class="section">
+<h2>8. flex-grow</h2>
+<p>Controls how much an item grows to use available free space.</p>
+<div class="demo grow-demo">
+    <div class="item">Normal</div>
+    <div class="item grow">Grow 1</div>
+    <div class="item grow">Grow 1</div>
+</div>
+</section>
+
+<section class="section">
+<h2>9. flex-shrink and flex-basis</h2>
+<p><b>flex-shrink</b> controls shrinking. <b>flex-basis</b> sets an item's initial main size.</p>
+<div class="demo basis-demo">
+    <div class="item basis">Basis 100px</div>
+    <div class="item">Normal</div>
+</div>
+</section>
+
+<section class="section">
+<h2>10. align-self</h2>
+<p>Overrides align-items for one individual flex item.</p>
+<div class="demo self-demo">
+    <div class="item">Normal</div>
+    <div class="item self-center">Center</div>
+    <div class="item self-end">End</div>
+</div>
+</section>
+
+<section class="section">
+<h2>11. order</h2>
+<p>Changes the visual order of flex items without changing the HTML order.</p>
+<div class="demo order-demo">
+    <div class="item first">HTML 1 / Order 2</div>
+    <div class="item second">HTML 2 / Order 1</div>
+    <div class="item third">HTML 3 / Order 3</div>
+</div>
+</section>
+
+<div class="note">
+<b>Remember:</b> Parent properties include display, flex-direction,
+flex-wrap, flex-flow, justify-content, align-items, align-content and gap.
+Item properties include order, flex-grow, flex-shrink, flex-basis,
+flex and align-self. The flex-flow property is a shorthand for
+flex-direction and flex-wrap.
+</div>
+
+</main>
 </body>
 </html>
