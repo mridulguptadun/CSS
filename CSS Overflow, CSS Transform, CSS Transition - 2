@@ -1,0 +1,577 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creative Academy - CSS Effects</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #1e293b;
+    background: #f8fafc;
+}
+
+header {
+    background: #0f172a;
+    color: white;
+    padding: 18px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #38bdf8;
+}
+
+header small {
+    color: #cbd5e1;
+}
+
+nav {
+    background: #1d4ed8;
+    padding: 14px 6%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+
+    /* TRANSITION PROPERTY */
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #fde68a;
+}
+
+.hero {
+    padding: 55px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    background: linear-gradient(120deg, #dbeafe, #eff6ff);
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero h1 {
+    font-size: clamp(30px, 4vw, 46px);
+    margin: 0 0 15px;
+}
+
+.hero p {
+    line-height: 1.8;
+    color: #475569;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 5px;
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    margin-top: 10px;
+
+    /* TRANSITION PROPERTY */
+    transition: background-color 0.3s ease,
+                transform 0.3s ease;
+}
+
+.btn:hover {
+    background: #1e40af;
+
+    /* TRANSFORM PROPERTY */
+    transform: translateY(-4px);
+}
+
+.hero-card {
+    flex: 0 1 300px;
+    min-height: 200px;
+    padding: 25px;
+    border-radius: 12px;
+    background: #2563eb;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    /* TRANSITION PROPERTY */
+    transition: transform 0.4s ease;
+}
+
+.hero-card:hover {
+    /* TRANSFORM PROPERTY */
+    transform: rotate(2deg) scale(1.04);
+}
+
+.property-label {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    background: #fff7ed;
+    color: #9a3412;
+    border: 1px solid #fed7aa;
+    padding: 7px 9px;
+    margin-top: 14px;
+    border-radius: 4px;
+    font: 12px/1.5 monospace;
+    overflow-wrap: anywhere;
+}
+
+.section {
+    padding: 35px 6%;
+}
+
+.section h2 {
+    margin-top: 0;
+    font-size: 27px;
+}
+
+.section-intro {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.course-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-top: 22px;
+}
+
+.course {
+    flex: 1 1 230px;
+    min-width: 0;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 22px;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+
+    /* TRANSITION PROPERTY */
+    transition: transform 0.35s ease,
+                box-shadow 0.35s ease;
+}
+
+.course:hover {
+    /* TRANSFORM PROPERTY */
+    transform: translateY(-8px) scale(1.02);
+
+    box-shadow: 0 12px 25px rgba(15, 23, 42, 0.15);
+}
+
+.course-icon {
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.course:nth-child(2) .course-icon {
+    background: #d1fae5;
+    color: #047857;
+}
+
+.course:nth-child(3) .course-icon {
+    background: #f3e8ff;
+    color: #7e22ce;
+}
+
+.course h3 {
+    margin: 0 0 10px;
+}
+
+.course p {
+    color: #64748b;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.course a {
+    color: #2563eb;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.course a:hover {
+    text-decoration: underline;
+}
+
+.layout {
+    padding: 0 6% 40px;
+    display: flex;
+    align-items: flex-start;
+    gap: 22px;
+}
+
+.main-content {
+    flex: 2;
+    min-width: 0;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 22px;
+}
+
+.sidebar {
+    flex: 1;
+    min-width: 0;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 22px;
+}
+
+.lesson {
+    padding: 14px;
+    margin: 12px 0;
+    background: #f1f5f9;
+    border-radius: 5px;
+    border-left: 4px solid #2563eb;
+}
+
+.lesson p {
+    margin-bottom: 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* OVERFLOW PROPERTY */
+.announcements {
+    height: 160px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    padding: 12px;
+    border-radius: 6px;
+}
+
+.announcement {
+    padding: 10px 0;
+    border-bottom: 1px solid #bfdbfe;
+    line-height: 1.5;
+}
+
+.announcement:last-child {
+    border-bottom: none;
+}
+
+.notice {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 5px;
+    background: #fef3c7;
+
+    /* OVERFLOW PROPERTY */
+    overflow: hidden;
+}
+
+.notice p {
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.gallery-item {
+    flex: 1 1 180px;
+    height: 130px;
+    border-radius: 9px;
+    background: #0f766e;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+
+    /* TRANSITION PROPERTY */
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:nth-child(2) {
+    background: #7c3aed;
+}
+
+.gallery-item:nth-child(3) {
+    background: #c2410c;
+}
+
+.gallery-item:hover {
+    /* TRANSFORM PROPERTY */
+    transform: rotate(-3deg) scale(1.06);
+}
+
+footer {
+    padding: 25px 6%;
+    background: #020617;
+    color: #cbd5e1;
+    text-align: center;
+}
+
+footer p {
+    margin: 7px 0;
+    font-size: 14px;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 700px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-card {
+        flex-basis: auto;
+    }
+
+    .layout {
+        flex-direction: column;
+    }
+
+    .main-content,
+    .sidebar {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div>
+        <div class="logo">Creative<span>Academy</span></div>
+        <small>Learn • Practice • Create</small>
+        <span class="property-label">
+            Properties: display: flex; justify-content; align-items; gap
+        </span>
+    </div>
+    <div>Student Learning Portal</div>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#courses">Courses</a>
+    <a href="#lessons">Lessons</a>
+    <a href="#gallery">Gallery</a>
+    <span class="property-label">
+        Properties: display: flex; flex-wrap; gap; transition
+    </span>
+</nav>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Build Skills for Your Future</h1>
+        <p>
+            Learn web development with simple lessons, practical examples
+            and creative projects. Start with the basics and keep improving.
+        </p>
+        <a class="btn" href="#courses">Explore Courses</a>
+
+        <span class="property-label">
+            Properties: transition; transform: translateY()
+        </span>
+    </div>
+
+    <div class="hero-card">
+        <h2>Learn CSS Effects</h2>
+        <p>Move, rotate, resize and smoothly animate elements.</p>
+
+        <span class="property-label">
+            Properties: transform: rotate(); scale(); transition
+        </span>
+    </div>
+</section>
+
+<section class="section" id="courses">
+    <h2>Our Popular Courses</h2>
+    <p class="section-intro">
+        Hover over a course card to see the transition and transform effects.
+    </p>
+
+    <div class="course-grid">
+        <article class="course">
+            <div class="course-icon">HTML</div>
+            <h3>HTML Basics</h3>
+            <p>Learn headings, paragraphs, links, images and page structure.</p>
+            <a href="#lessons">Explore course →</a>
+
+            <span class="property-label">
+                Properties: transition; transform: translateY(); scale()
+            </span>
+        </article>
+
+        <article class="course">
+            <div class="course-icon">CSS</div>
+            <h3>CSS Styling</h3>
+            <p>Learn colors, spacing, borders, layouts and visual effects.</p>
+            <a href="#lessons">Explore course →</a>
+
+            <span class="property-label">
+                Properties: transition; transform; box-shadow
+            </span>
+        </article>
+
+        <article class="course">
+            <div class="course-icon">WEB</div>
+            <h3>Web Projects</h3>
+            <p>Practice your skills by building simple and useful websites.</p>
+            <a href="#gallery">Explore projects →</a>
+
+            <span class="property-label">
+                Properties: flex; transition; transform
+            </span>
+        </article>
+    </div>
+</section>
+
+<section class="layout" id="lessons">
+    <main class="main-content">
+        <h2>Latest Lessons</h2>
+        <p class="section-intro">
+            Follow these lessons to improve your web development skills.
+        </p>
+
+        <div class="lesson">
+            <strong>Lesson 01 — CSS Overflow</strong>
+            <p>Control extra content with hidden, scroll and auto.</p>
+        </div>
+
+        <div class="lesson">
+            <strong>Lesson 02 — CSS Transform</strong>
+            <p>Move, rotate, enlarge and tilt website elements.</p>
+        </div>
+
+        <div class="lesson">
+            <strong>Lesson 03 — CSS Transition</strong>
+            <p>Create smooth changes when a user hovers over an element.</p>
+        </div>
+
+        <span class="property-label">
+            Properties: overflow; transform; transition
+        </span>
+    </main>
+
+    <aside class="sidebar">
+        <h2>Announcements</h2>
+        <p class="section-intro">
+            Scroll inside this box to read all announcements.
+        </p>
+
+        <div class="announcements">
+            <div class="announcement">
+                <strong>New Course</strong><br>
+                CSS effects practice is now available.
+            </div>
+
+            <div class="announcement">
+                <strong>Practice Task</strong><br>
+                Apply a transform effect to a card.
+            </div>
+
+            <div class="announcement">
+                <strong>Student Challenge</strong><br>
+                Create a smooth hover button.
+            </div>
+
+            <div class="announcement">
+                <strong>Reminder</strong><br>
+                Revise overflow and scrolling.
+            </div>
+
+            <div class="announcement">
+                <strong>Next Topic</strong><br>
+                Continue with CSS animations.
+            </div>
+        </div>
+
+        <span class="property-label">
+            Properties: overflow-y: auto; overflow-x: hidden
+        </span>
+
+        <div class="notice">
+            <strong>Important Notice</strong>
+            <p>
+                Complete each lesson and test the examples in your browser.
+            </p>
+
+            <span class="property-label">
+                Property: overflow: hidden
+            </span>
+        </div>
+    </aside>
+</section>
+
+<section class="section" id="gallery">
+    <h2>Creative Project Gallery</h2>
+    <p class="section-intro">
+        Hover over each block to see it rotate and enlarge smoothly.
+    </p>
+
+    <div class="gallery">
+        <div class="gallery-item">
+            Project One
+        </div>
+
+        <div class="gallery-item">
+            Project Two
+        </div>
+
+        <div class="gallery-item">
+            Project Three
+        </div>
+    </div>
+
+    <span class="property-label">
+        Properties: transition: transform; transform: rotate() scale()
+    </span>
+</section>
+
+<footer>
+    <strong>Creative Academy</strong>
+    <p>Learn web development one step at a time.</p>
+    <p>HTML + CSS Student Practice Project</p>
+</footer>
+
+</body>
+</html>
