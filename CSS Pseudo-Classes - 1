@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSS Pseudo-Classes Explained</title>
+<style>
+body{font-family:Arial;margin:0;padding:20px;background:#f1f5f9;color:#1e293b}
+section{max-width:900px;margin:20px auto;padding:20px;background:white;border-radius:8px}
+.demo{padding:12px;margin:8px 0;background:#dbeafe;border-radius:5px}
+.demo:hover{background:#bfdbfe}
+button{padding:10px 15px;border:0;border-radius:5px;background:#2563eb;color:white;cursor:pointer}
+button:hover{background:#1e40af}
+input{padding:10px;border:1px solid #94a3b8;border-radius:5px}
+input:focus{outline:3px solid #93c5fd;border-color:#2563eb}
+li:first-child{color:#047857;font-weight:bold}
+li:last-child{color:#be123c}
+tr:nth-child(even){background:#eff6ff}
+a:visited{color:#7c3aed}
+a:active{color:#dc2626}
+.box:checked+label{color:#047857;font-weight:bold}
+table{border-collapse:collapse;width:100%}
+td,th{border:1px solid #cbd5e1;padding:9px;text-align:left}
+th{background:#dbeafe}
+code{color:#9a3412}
+</style>
+</head>
+<body>
+<section>
+<h1>CSS Pseudo-Classes</h1>
+<p><b>Definition:</b> A pseudo-class selects an element in a special state.</p>
+<p><code>selector:pseudo-class { property: value; }</code></p>
+</section>
+<section>
+<h2>1. :hover</h2><p>Move your mouse over the box.</p>
+<div class="demo">Hover over me</div>
+<h2>2. :focus</h2><p>Click inside the input field.</p>
+<input placeholder="Click here to test focus">
+<h2>3. :active</h2><p>Press and hold the button.</p>
+<button>Press me</button>
+<h2>4. :first-child and :last-child</h2>
+<ul><li>First item</li><li>Middle item</li><li>Last item</li></ul>
+<h2>5. :nth-child(even)</h2>
+<table><tr><th>Name</th><th>Marks</th></tr><tr><td>Aman</td><td>80</td></tr><tr><td>Riya</td><td>90</td></tr><tr><td>Raj</td><td>75</td></tr><tr><td>Neha</td><td>88</td></tr></table>
+<h2>6. :checked</h2>
+<input class="box" type="checkbox" id="agree"><label for="agree"> Tick this checkbox</label>
+<h2>7. :disabled and :enabled</h2>
+<input placeholder="Enabled input">
+<input placeholder="Disabled input" disabled>
+<h2>8. :required and :optional</h2>
+<input required placeholder="Required field">
+<input placeholder="Optional field">
+<h2>9. :not()</h2>
+<p>Example selector: <code>p:not(.special)</code> selects paragraphs without class="special".</p>
+<h2>10. :empty</h2>
+<p>Example selector: <code>div:empty</code> selects elements that have no child nodes.</p>
+</section>
+<section>
+<h2>Quick Reference Table</h2>
+<table>
+<tr><th>Pseudo-class</th><th>Simple explanation</th></tr>
+<tr><td>:hover</td><td>When the pointer is over an element.</td></tr>
+<tr><td>:focus</td><td>When an element has focus.</td></tr>
+<tr><td>:active</td><td>While an element is being activated.</td></tr>
+<tr><td>:visited</td><td>For a visited link.</td></tr>
+<tr><td>:first-child</td><td>When the element is the first child.</td></tr>
+<tr><td>:last-child</td><td>When the element is the last child.</td></tr>
+<tr><td>:nth-child()</td><td>Selects children by position or pattern.</td></tr>
+<tr><td>:checked</td><td>For a checked checkbox or radio button.</td></tr>
+<tr><td>:disabled</td><td>For a disabled form control.</td></tr>
+<tr><td>:enabled</td><td>For an enabled form control.</td></tr>
+<tr><td>:required</td><td>For a required form field.</td></tr>
+<tr><td>:optional</td><td>For a field that is not required.</td></tr>
+<tr><td>:not()</td><td>Selects elements that do not match a selector.</td></tr>
+<tr><td>:empty</td><td>Selects elements with no child nodes.</td></tr>
+</table>
+</section>
+</body>
+</html>
