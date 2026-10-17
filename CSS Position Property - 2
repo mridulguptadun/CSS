@@ -1,0 +1,713 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Position Property - Labeled Website</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 12px;
+    background: #e2e8f0;
+    font-family: Arial, sans-serif;
+    color: #1e293b;
+    font-size: 11px;
+}
+
+.page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: auto;
+    padding: 7mm;
+    background: white;
+    position: relative;
+}
+
+h1 {
+    margin: 0;
+    text-align: center;
+    color: #1d4ed8;
+    font-size: 23px;
+}
+
+.subtitle {
+    text-align: center;
+    margin: 5px 0 12px;
+    font-size: 10px;
+}
+
+/* HEADER */
+.header {
+    position: relative;
+    height: 58px;
+    background: #172554;
+    color: white;
+    border-radius: 5px;
+}
+
+.logo {
+    position: absolute;
+    left: 13px;
+    top: 16px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.header-label {
+    position: absolute;
+    left: 13px;
+    bottom: 4px;
+    font-size: 8px;
+    color: #bfdbfe;
+}
+
+.header-info {
+    position: absolute;
+    right: 12px;
+    top: 23px;
+}
+
+.header-badge {
+    position: absolute;
+    right: 10px;
+    top: -5px;
+    padding: 4px 7px;
+    background: #f97316;
+    border-radius: 4px;
+    font-size: 9px;
+}
+
+/* NAVBAR */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    margin-top: 7px;
+    height: 34px;
+    background: #dbeafe;
+    border: 1px solid #93c5fd;
+}
+
+.nav-item {
+    position: relative;
+    display: inline-block;
+    padding: 10px 12px;
+    color: #1d4ed8;
+    font-weight: bold;
+}
+
+/* MAIN WEBSITE */
+.website {
+    position: relative;
+    height: 545px;
+    margin-top: 9px;
+    border: 2px solid #94a3b8;
+    background: #f8fafc;
+    border-radius: 5px;
+}
+
+.container-label {
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    color: #64748b;
+    font-size: 8px;
+}
+
+/* LEFT SIDEBAR */
+.left-sidebar {
+    position: absolute;
+    top: 23px;
+    left: 7px;
+    bottom: 7px;
+    width: 118px;
+    padding: 8px;
+    background: #dbeafe;
+    border-radius: 5px;
+}
+
+.left-sidebar h3 {
+    margin: 0 0 8px;
+    font-size: 12px;
+}
+
+.menu-item {
+    position: relative;
+    padding: 9px 4px;
+    margin-bottom: 7px;
+    background: white;
+    border: 1px solid #bfdbfe;
+    border-radius: 4px;
+    font-size: 9px;
+}
+
+.menu-label {
+    position: absolute;
+    right: 3px;
+    bottom: 1px;
+    color: #2563eb;
+    font-size: 6px;
+}
+
+/* MAIN CONTENT */
+.main {
+    position: absolute;
+    top: 23px;
+    left: 135px;
+    right: 110px;
+    bottom: 7px;
+}
+
+/* HERO */
+.hero {
+    position: relative;
+    height: 105px;
+    padding: 12px;
+    background: #bfdbfe;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.hero h2 {
+    position: relative;
+    z-index: 2;
+    width: 70%;
+    margin: 0 0 7px;
+    font-size: 17px;
+}
+
+.hero p {
+    position: relative;
+    z-index: 2;
+    width: 72%;
+    font-size: 9px;
+    line-height: 1.5;
+}
+
+.hero-circle {
+    position: absolute;
+    top: 14px;
+    right: 17px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #2563eb;
+}
+
+.hero-label {
+    position: absolute;
+    bottom: 7px;
+    right: 7px;
+    z-index: 3;
+    padding: 4px;
+    background: #dc2626;
+    color: white;
+    font-size: 8px;
+    border-radius: 3px;
+}
+
+/* SECTION TITLE */
+.section-title {
+    position: relative;
+    margin: 12px 0 9px;
+    padding-bottom: 6px;
+    font-size: 14px;
+    border-bottom: 2px solid #bfdbfe;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 45px;
+    height: 2px;
+    background: #2563eb;
+}
+
+/* CARDS */
+.card {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 31%;
+    height: 108px;
+    margin-right: 1%;
+    padding: 8px 6px;
+    background: white;
+    border: 1px solid #cbd5e1;
+    border-radius: 5px;
+}
+
+.card h3 {
+    margin: 8px 0 5px;
+    font-size: 11px;
+}
+
+.card p {
+    margin: 0;
+    font-size: 9px;
+    line-height: 1.5;
+}
+
+.card-icon {
+    position: relative;
+    width: 23px;
+    height: 23px;
+    padding-top: 5px;
+    text-align: center;
+    background: #dbeafe;
+    color: #1d4ed8;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.card-badge {
+    position: absolute;
+    top: -5px;
+    right: 3px;
+    padding: 3px;
+    background: #059669;
+    color: white;
+    font-size: 7px;
+    border-radius: 3px;
+}
+
+/* OVERLAPPING BOXES */
+.overlap-area {
+    position: relative;
+    height: 95px;
+    margin-top: 12px;
+    background: #e2e8f0;
+    border: 1px dashed #94a3b8;
+    border-radius: 5px;
+}
+
+.overlap-label {
+    position: absolute;
+    top: 4px;
+    left: 6px;
+    color: #334155;
+    font-size: 8px;
+}
+
+.layer {
+    position: absolute;
+    width: 115px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: 2px solid white;
+    border-radius: 5px;
+    font-size: 9px;
+}
+
+.layer-one {
+    top: 28px;
+    left: 30px;
+    background: #2563eb;
+    z-index: 1;
+}
+
+.layer-two {
+    top: 37px;
+    left: 90px;
+    background: #ea580c;
+    z-index: 2;
+}
+
+.layer-three {
+    top: 46px;
+    left: 150px;
+    background: #059669;
+    z-index: 3;
+}
+
+/* LOWER INFO BOXES */
+.info-box {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 48%;
+    height: 76px;
+    margin-top: 11px;
+    margin-right: 1%;
+    padding: 8px;
+    background: white;
+    border: 1px solid #cbd5e1;
+    border-radius: 5px;
+}
+
+.info-box h3 {
+    margin: 0 0 5px;
+    font-size: 10px;
+}
+
+.info-box p {
+    font-size: 9px;
+    line-height: 1.4;
+}
+
+.info-number {
+    position: absolute;
+    right: 6px;
+    bottom: 4px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+/* RIGHT SIDEBAR */
+.right-sidebar {
+    position: absolute;
+    top: 23px;
+    right: 7px;
+    bottom: 7px;
+    width: 93px;
+    padding: 7px;
+    background: #f1f5f9;
+    border-radius: 5px;
+}
+
+.right-sidebar h3 {
+    margin: 0 0 9px;
+    font-size: 11px;
+}
+
+.notice {
+    position: relative;
+    padding: 9px 4px;
+    margin-bottom: 9px;
+    background: white;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    font-size: 8px;
+}
+
+.notice-count {
+    position: absolute;
+    top: -5px;
+    right: -4px;
+    width: 14px;
+    height: 14px;
+    text-align: center;
+    padding-top: 2px;
+    color: white;
+    background: #dc2626;
+    border-radius: 50%;
+    font-size: 8px;
+}
+
+/* STICKY DEMO */
+.sticky-demo {
+    position: relative;
+    height: 72px;
+    margin-top: 12px;
+    overflow-y: auto;
+    border: 1px solid #94a3b8;
+    background: white;
+}
+
+.sticky-title {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    padding: 7px;
+    background: #172554;
+    color: white;
+    font-size: 9px;
+}
+
+.sticky-content {
+    padding: 5px;
+    line-height: 2;
+    font-size: 9px;
+}
+
+/* FOOTER */
+.footer {
+    position: absolute;
+    left: 7mm;
+    right: 7mm;
+    bottom: 7mm;
+    height: 37px;
+    background: #172554;
+    color: white;
+    border-radius: 4px;
+}
+
+.footer-left {
+    position: absolute;
+    top: 12px;
+    left: 10px;
+}
+
+.footer-right {
+    position: absolute;
+    top: 12px;
+    right: 10px;
+}
+
+/* FIXED SCREEN BUTTON */
+.fixed-button {
+    position: fixed;
+    right: 12px;
+    bottom: 12px;
+    z-index: 100;
+    padding: 10px 13px;
+    background: #dc2626;
+    color: white;
+    border-radius: 20px;
+    font-size: 10px;
+}
+
+/* PRINT */
+@page {
+    size: A4 portrait;
+    margin: 0;
+}
+
+@media print {
+    body {
+        padding: 0;
+        background: white;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .page {
+        width: 210mm;
+        height: 297mm;
+        min-height: 0;
+        padding: 7mm;
+    }
+
+    .navbar {
+        position: relative;
+    }
+
+    .fixed-button {
+        display: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+<h1>CSS POSITION PROPERTY</h1>
+<p class="subtitle">
+    Real Website Layout — Every Element Shows Its Position Type
+</p>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="logo">
+        MyWebsite
+        <div class="header-label">position: absolute</div>
+    </div>
+
+    <div class="header-info">Learn HTML &amp; CSS</div>
+
+    <div class="header-badge">
+        absolute
+    </div>
+</header>
+
+<!-- NAVIGATION -->
+<nav class="navbar">
+    <div class="nav-item">Home <small>relative</small></div>
+    <div class="nav-item">About <small>relative</small></div>
+    <div class="nav-item">Courses <small>relative</small></div>
+    <div class="nav-item">Contact <small>relative</small></div>
+</nav>
+
+<!-- MAIN WEBSITE CONTAINER -->
+<div class="website">
+
+    <div class="container-label">
+        Main: position: relative
+    </div>
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="left-sidebar">
+        <h3>Left Sidebar</h3>
+        <small>position: absolute</small>
+
+        <div class="menu-item">
+            Dashboard
+            <span class="menu-label">relative</span>
+        </div>
+
+        <div class="menu-item">
+            Courses
+            <span class="menu-label">relative</span>
+        </div>
+
+        <div class="menu-item">
+            Lessons
+            <span class="menu-label">relative</span>
+        </div>
+
+        <div class="menu-item">
+            Projects
+            <span class="menu-label">relative</span>
+        </div>
+
+        <div class="menu-item">
+            Settings
+            <span class="menu-label">relative</span>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+        <section class="hero">
+            <h2>Welcome to My Website</h2>
+            <p>
+                Learn web development with easy examples.
+                <br>Text: position: relative
+            </p>
+
+            <div class="hero-circle"></div>
+
+            <div class="hero-label">
+                absolute + z-index
+            </div>
+        </section>
+
+        <h2 class="section-title">
+            Our Courses — position: relative
+        </h2>
+
+        <section>
+            <div class="card">
+                <div class="card-icon">H</div>
+                <div class="card-badge">absolute</div>
+                <h3>HTML Basics</h3>
+                <p>Card: position: relative</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">C</div>
+                <div class="card-badge">absolute</div>
+                <h3>CSS Design</h3>
+                <p>Card: position: relative</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">P</div>
+                <h3>Position</h3>
+                <p>Card: position: relative</p>
+            </div>
+        </section>
+
+        <!-- OVERLAPPING -->
+        <section class="overlap-area">
+            <div class="overlap-label">
+                Overlapping elements: position: absolute
+            </div>
+
+            <div class="layer layer-one">
+                z-index: 1
+            </div>
+
+            <div class="layer layer-two">
+                z-index: 2
+            </div>
+
+            <div class="layer layer-three">
+                z-index: 3
+            </div>
+        </section>
+
+        <!-- INFO BOXES -->
+        <section>
+            <div class="info-box">
+                <h3>Student Progress</h3>
+                <p>Parent: position: relative</p>
+                <div class="info-number">75%<br><small>absolute</small></div>
+            </div>
+
+            <div class="info-box">
+                <h3>Completed Lessons</h3>
+                <p>Parent: position: relative</p>
+                <div class="info-number">12<br><small>absolute</small></div>
+            </div>
+        </section>
+
+        <!-- STICKY EXAMPLE -->
+        <section class="sticky-demo">
+            <div class="sticky-title">
+                Sticky Heading — position: sticky; top: 0
+            </div>
+
+            <div class="sticky-content">
+                Scroll inside this box to test sticky positioning.<br>
+                Content line 2 — normal flow<br>
+                Content line 3 — normal flow<br>
+                Content line 4 — normal flow<br>
+                Content line 5 — normal flow
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RIGHT SIDEBAR -->
+    <aside class="right-sidebar">
+        <h3>Notifications</h3>
+        <small>position: absolute</small>
+
+        <div class="notice">
+            New Lesson
+            <span class="notice-count">1</span>
+        </div>
+
+        <div class="notice">
+            CSS Test
+            <span class="notice-count">2</span>
+        </div>
+
+        <div class="notice">
+            New Task
+            <span class="notice-count">3</span>
+        </div>
+
+        <div class="notice">
+            Help Center
+        </div>
+    </aside>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-left">
+        MyWebsite | Footer text: position: absolute
+    </div>
+
+    <div class="footer-right">
+        © 2026
+    </div>
+</footer>
+
+</div>
+
+<!-- FIXED -->
+<div class="fixed-button">
+    position: fixed
+</div>
+
+</body>
+</html>
