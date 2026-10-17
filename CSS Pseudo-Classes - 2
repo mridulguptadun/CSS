@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SkillPoint Academy</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial;background:#f8fafc;color:#1e293b}
+header{background:#0f172a;color:white;padding:20px 6%;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+nav{background:#1d4ed8;padding:14px 6%;display:flex;gap:22px;flex-wrap:wrap}
+nav a{color:white;text-decoration:none}
+nav a:hover{color:#fde68a}
+nav a:active{color:#fecaca}
+section{padding:32px 6%}
+.hero{background:#dbeafe}
+.hero h1{font-size:clamp(30px,4vw,44px)}
+.btn{display:inline-block;padding:12px 18px;background:#2563eb;color:white;text-decoration:none;border-radius:5px}
+.btn:hover{background:#1e40af}
+.btn:active{transform:scale(.97)}
+.cards{display:flex;gap:20px;flex-wrap:wrap}
+.card{flex:1 1 220px;background:white;border:1px solid #cbd5e1;border-radius:8px;padding:20px}
+.card:hover{border-color:#2563eb;background:#eff6ff}
+.card:nth-child(even){border-top:4px solid #059669}
+.card:nth-child(odd){border-top:4px solid #2563eb}
+.card a{color:#2563eb}
+.card a:visited{color:#7c3aed}
+form{max-width:600px;background:white;padding:22px;border:1px solid #cbd5e1;border-radius:8px}
+.field{display:block;width:100%;padding:12px;margin:8px 0 16px;border:1px solid #94a3b8;border-radius:5px;font:inherit}
+.field:focus{outline:3px solid #bfdbfe;border-color:#2563eb}
+input:required{border-left:4px solid #2563eb}
+input:disabled{background:#e2e8f0;cursor:not-allowed}
+input[type=checkbox]:checked+label{color:#047857;font-weight:bold}
+button{padding:12px 18px;background:#2563eb;color:white;border:0;border-radius:5px;cursor:pointer}
+button:hover{background:#1e40af}
+button:active{background:#be123c}
+.label{display:block;margin-top:12px;background:#fff7ed;color:#9a3412;padding:8px;font:12px monospace;overflow-wrap:anywhere}
+footer{background:#020617;color:white;padding:25px 6%;text-align:center}
+@media(max-width:550px){section{padding:24px 5%}.cards{flex-direction:column}}
+</style>
+</head>
+<body>
+<header><div><h2>SkillPoint Academy</h2><small>Learn something new every day</small></div><span>Student Portal</span></header>
+<nav><a href="#home">Home</a><a href="#courses">Courses</a><a href="#register">Register</a></nav>
+<section class="hero" id="home">
+<h1>Learn. Practice. Grow.</h1>
+<p>Explore courses and build useful skills with practical lessons.</p>
+<a class="btn" href="#courses">Explore Courses</a>
+<span class="label">Pseudo-classes: :hover, :active</span>
+</section>
+<section id="courses">
+<h2>Our Courses</h2>
+<p>Hover over the cards. Alternate cards have different top borders.</p>
+<div class="cards">
+<article class="card"><h3>HTML Basics</h3><p>Learn page structure and HTML elements.</p><a href="#register">Join course</a></article>
+<article class="card"><h3>CSS Styling</h3><p>Learn colors, spacing and responsive layouts.</p><a href="#register">Join course</a></article>
+<article class="card"><h3>Web Design</h3><p>Practice by creating useful web pages.</p><a href="#register">Join course</a></article>
+</div>
+<span class="label">Pseudo-classes: :hover, :nth-child(even), :nth-child(odd), :visited</span>
+</section>
+<section id="register">
+<h2>Student Registration</h2>
+<form>
+<label for="student">Student name (required)</label>
+<input class="field" id="student" required placeholder="Enter your name">
+<label for="email">Email (required)</label>
+<input class="field" id="email" type="email" required placeholder="Enter your email">
+<label for="phone">Phone (optional)</label>
+<input class="field" id="phone" placeholder="Optional phone number">
+<input type="checkbox" id="terms" required><label for="terms"> I agree to the registration details</label>
+<br><br>
+<button type="submit">Register</button>
+<span class="label">Pseudo-classes: :focus, :required, :optional, :checked</span>
+</form>
+</section>
+<footer><p>SkillPoint Academy | HTML + CSS Practice</p></footer>
+</body>
+</html>
