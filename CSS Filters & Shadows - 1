@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSS Filters and Shadows</title>
+<style>
+body{font-family:Arial;margin:0;padding:20px;background:#f1f5f9;color:#1e293b}
+section{max-width:900px;margin:20px auto;padding:20px;background:white;border-radius:8px}
+.demo{display:inline-block;background:#2563eb;color:white;padding:18px;margin:12px;border-radius:6px}
+.gray{filter:grayscale(100%)}
+.blur{filter:blur(2px)}
+.bright{filter:brightness(1.4)}
+.dark{filter:brightness(.65)}
+.contrast{filter:contrast(180%)}
+.sepia{filter:sepia(100%)}
+.invert{filter:invert(100%)}
+.saturate{filter:saturate(250%)}
+.shadow{box-shadow:6px 6px 12px #94a3b8}
+.inner{box-shadow:inset 0 0 10px #0f172a}
+.text-shadow{text-shadow:3px 3px 4px #94a3b8}
+.multiple{box-shadow:0 4px 8px #94a3b8,0 10px 20px #cbd5e1}
+table{width:100%;border-collapse:collapse}
+td,th{border:1px solid #cbd5e1;padding:9px;text-align:left}
+th{background:#dbeafe}
+code{color:#9a3412}
+</style>
+</head>
+<body>
+<section>
+<h1>CSS Filters & Shadows</h1>
+<p><b>Filter:</b> Changes the visual appearance of an element.</p>
+<p><b>Shadow:</b> Adds a shadow behind a box or text.</p>
+</section>
+<section>
+<h2>Part 1: CSS Filter Examples</h2>
+<div class="demo">Original</div>
+<div class="demo gray">Grayscale</div>
+<div class="demo blur">Blur</div>
+<div class="demo bright">Brightness</div>
+<div class="demo dark">Dark</div>
+<div class="demo contrast">Contrast</div>
+<div class="demo sepia">Sepia</div>
+<div class="demo invert">Invert</div>
+<div class="demo saturate">Saturate</div>
+</section>
+<section>
+<h2>Part 2: CSS Box Shadows</h2>
+<div class="demo shadow">Box Shadow</div>
+<div class="demo inner">Inset Shadow</div>
+<div class="demo multiple">Multiple Shadows</div>
+</section>
+<section>
+<h2>Part 3: CSS Text Shadow</h2>
+<h1 class="text-shadow">Beautiful Text</h1>
+<p class="text-shadow">This paragraph has a text shadow.</p>
+</section>
+<section>
+<h2>Quick Reference Table</h2>
+<table>
+<tr><th>Property / Value</th><th>Simple explanation</th></tr>
+<tr><td>filter: grayscale(100%)</td><td>Removes color.</td></tr>
+<tr><td>filter: blur(2px)</td><td>Makes content blurry.</td></tr>
+<tr><td>filter: brightness(1.4)</td><td>Makes content brighter.</td></tr>
+<tr><td>filter: contrast(180%)</td><td>Increases contrast.</td></tr>
+<tr><td>filter: sepia(100%)</td><td>Gives a brown, old-photo effect.</td></tr>
+<tr><td>filter: invert(100%)</td><td>Inverts colors.</td></tr>
+<tr><td>filter: saturate(250%)</td><td>Increases color intensity.</td></tr>
+<tr><td>filter: opacity(50%)</td><td>Makes content partly transparent.</td></tr>
+<tr><td>filter: hue-rotate(90deg)</td><td>Changes the colors' hue.</td></tr>
+<tr><td>filter: drop-shadow()</td><td>Adds a shadow following an image's shape.</td></tr>
+<tr><td>box-shadow</td><td>Adds a shadow around a box.</td></tr>
+<tr><td>text-shadow</td><td>Adds a shadow to text.</td></tr>
+<tr><td>inset</td><td>Makes a box shadow appear inside the box.</td></tr>
+</table>
+<p><b>Example:</b> <code>box-shadow: 4px 4px 10px #999;</code></p>
+<p><b>Order:</b> box-shadow values are horizontal offset, vertical offset, blur radius, and color.</p>
+</section>
+</body>
+</html>
