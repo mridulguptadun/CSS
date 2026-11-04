@@ -1,0 +1,440 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flexbox Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6fb;
+    color: #222;
+}
+
+/* HEADER */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: #172554;
+    color: white;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+/* HERO */
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 80px 8%;
+    background: #dbeafe;
+}
+
+.hero-content {
+    flex: 1 1 300px;
+}
+
+.hero-content h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.hero-content button {
+    padding: 12px 25px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.hero-image {
+    flex: 1 1 250px;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 15px;
+}
+
+/* ABOUT */
+
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 60px 8%;
+    flex-wrap: wrap;
+}
+
+.about-box {
+    flex: 1 1 250px;
+}
+
+.about-box h2 {
+    margin-bottom: 15px;
+    color: #1d4ed8;
+}
+
+.about-box p {
+    line-height: 1.7;
+}
+
+/* SKILLS */
+
+.skills {
+    padding: 50px 8%;
+    background: white;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 30px;
+}
+
+.skill-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.skill {
+    flex: 1 1 180px;
+    max-width: 250px;
+    padding: 25px;
+    background: #eff6ff;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.skill h3 {
+    color: #2563eb;
+    margin-bottom: 10px;
+}
+
+/* PROJECTS */
+
+.projects {
+    padding: 60px 8%;
+}
+
+.project-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.project {
+    flex: 1 1 250px;
+    max-width: 350px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.project img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 20px;
+}
+
+.project-info h3 {
+    margin-bottom: 10px;
+}
+
+.project-info p {
+    line-height: 1.5;
+}
+
+/* CONTACT */
+
+.contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    padding: 60px 8%;
+    background: #dbeafe;
+    text-align: center;
+}
+
+.contact button {
+    padding: 12px 25px;
+    background: #172554;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+/* FOOTER */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 25px 8%;
+    background: #172554;
+    color: white;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+
+    header {
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero {
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+    <div class="logo">MyPortfolio</div>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Skills</a>
+        <a href="#">Projects</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+        <h1>Hello, I'm Rahul</h1>
+
+        <p>
+            I am a passionate web developer.
+            I love creating modern, responsive
+            and beautiful websites using HTML
+            and CSS.
+        </p>
+
+        <button>Explore My Work</button>
+    </div>
+
+    <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600"
+             alt="Developer workspace">
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about">
+
+    <div class="about-box">
+        <h2>About Me</h2>
+
+        <p>
+            I am learning frontend development
+            and building creative websites.
+            My goal is to become a professional
+            web developer and create amazing
+            digital experiences.
+        </p>
+    </div>
+
+    <div class="about-box">
+        <h2>My Goal</h2>
+
+        <p>
+            To master HTML, CSS, JavaScript
+            and modern web technologies.
+            I enjoy solving problems and
+            learning new things every day.
+        </p>
+    </div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section class="skills">
+
+    <h2 class="section-title">My Skills</h2>
+
+    <div class="skill-container">
+
+        <div class="skill">
+            <h3>HTML</h3>
+            <p>Website Structure</p>
+        </div>
+
+        <div class="skill">
+            <h3>CSS</h3>
+            <p>Website Styling</p>
+        </div>
+
+        <div class="skill">
+            <h3>Flexbox</h3>
+            <p>Flexible Layouts</p>
+        </div>
+
+        <div class="skill">
+            <h3>JavaScript</h3>
+            <p>Website Interaction</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section class="projects">
+
+    <h2 class="section-title">My Projects</h2>
+
+    <div class="project-container">
+
+        <div class="project">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600"
+                 alt="Website project">
+
+            <div class="project-info">
+                <h3>Business Website</h3>
+                <p>A modern website layout for businesses.</p>
+            </div>
+        </div>
+
+        <div class="project">
+            <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600"
+                 alt="Portfolio project">
+
+            <div class="project-info">
+                <h3>Portfolio Design</h3>
+                <p>A creative portfolio website design.</p>
+            </div>
+        </div>
+
+        <div class="project">
+            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600"
+                 alt="Web development project">
+
+            <div class="project-info">
+                <h3>Landing Page</h3>
+                <p>A responsive landing page layout.</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact">
+
+    <h2>Let's Work Together</h2>
+
+    <p>Have a project in mind? Let's connect!</p>
+
+    <button>Contact Me</button>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>© 2026 MyPortfolio</p>
+
+    <div class="footer-links">
+        <a href="#">Instagram</a>
+        <a href="#">GitHub</a>
+        <a href="#">LinkedIn</a>
+    </div>
+
+</footer>
+
+</body>
+</html>
